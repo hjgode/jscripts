@@ -1,0 +1,10 @@
+; SetupDll.def : Declares the module parameters for the DLL.
+
+LIBRARY      "SETUP"
+;DESCRIPTION  'SETUPDLL Windows CE Dynamic Link Library'
+
+EXPORTS
+	Install_Init
+	Install_Exit
+	Uninstall_Init
+	Uninstall_Exit

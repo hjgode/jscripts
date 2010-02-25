@@ -1,0 +1,32 @@
+- Bugfix: Clear works with references ([...])
+- Strings can be given in single quotes (only new syntax for compatibilty)
+- Comments with "#" after commands and assignments
+- Removes old scripts with same process ID from registry
+- Status list font update should work
+- Format( number, decimals [, leading] )
+- RepeatString( string, count )
+- TimeStampUTC()
+- TimeZoneName(), TimeZoneBias(), TimeZoneDST()
+- File dates in local time
+
+StatusInfo( <title> [, <list info> ] ) -- title and list info text
+StatusType( <style> [, <keepOpen>] [, <allowCancel>  ]] ) -- style = ST_HIDDEN, ST_LIST, ST_MESSAGE
+StatusListSize( <count> ) -- number of entries in list
+StatusMessage( <message> [, <style> [, <keepOpen>] [, <allowCancel>  ]]] )
+StatusClear() -- removes all previous messages
+StatusShow() -- to foreground
+WriteStatusList( <file name> )
+
+
+
+- Improved parser speed
+- Improved variable handling (local variables, IsEmpty(), Clear())
+- Improved array handling (multi dimensional, functions for initialization and getting size)
+- Improved math (floating point support, trigonometry, rounding, constants like PI, power operator, ...)
+- Improved sub routines (parameters, return values)
+- Improved control structures (For loop, ElseIf, ForEach in array with index variable, Switch with strings or floating point)
+- Improved file handling (Unicode and code page support, Unicode with prefix even for MortScripts themselves, write ini entries)
+- Improved compatibility for PNAs (toolhelp.dll only loaded when required)
+- Improved dialogs (selection for files and directories, small facelifts, selectable fonts)
+- Several other new functions, like Replace (for strings), getting window positions and screen size, ...
+- Some bugfixes

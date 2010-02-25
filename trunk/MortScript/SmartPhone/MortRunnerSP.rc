@@ -1,0 +1,367 @@
+//Microsoft eMbedded Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "newres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Chinese (P.R.C.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "runfile1.ico"
+IDI_RUNFILE             ICON    DISCARDABLE     "runner.ico"
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 5,0,1,0
+ PRODUCTVERSION 5,0,1,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x40004L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080404b0"
+        BEGIN
+            VALUE "Comments", "JScripts for Windows Mobile Smartphone v5.0.1.0\0"
+            VALUE "CompanyName", "Frez.organization\0"
+            VALUE "FileDescription", "JScripts\0"
+            VALUE "FileVersion", "5, 0, 1, 0\0"
+            VALUE "InternalName", "JScripts\0"
+            VALUE "LegalCopyright", "Copyright ?2005-2008 Mirko Schenk\0"
+            VALUE "LegalTrademarks", "Frez.organization\0"
+            VALUE "OriginalFilename", "JScripts.exe\0"
+            VALUE "PrivateBuild", "\0"
+            VALUE "ProductName", "JScripts\0"
+            VALUE "ProductVersion", "5, 0, 1, 0\0"
+            VALUE "SpecialBuild", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_CHOICE DIALOG DISCARDABLE  0, 0, 101, 105
+STYLE DS_MODALFRAME | WS_POPUP
+FONT 8, "System"
+BEGIN
+    LISTBOX         IDC_LIST,1,25,99,61,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | 
+                    WS_TABSTOP
+    RTEXT           "Static",IDC_COUNTDOWN,74,15,26,10
+    LTEXT           "Static",IDC_LABEL,1,2,99,23
+    PUSHBUTTON      "OK",IDOK,1,89,46,14
+    PUSHBUTTON      "Cancel",IDCANCEL,53,89,47,14
+END
+
+IDD_WAIT DIALOG DISCARDABLE  0, 0, 101, 98
+STYLE DS_SETFOREGROUND | DS_CENTER | WS_POPUP | WS_VISIBLE | WS_CAPTION
+FONT 9, "Tahoma"
+BEGIN
+    CTEXT           "Static",IDC_COUNTDOWN,37,77,26,10
+    PUSHBUTTON      "OK",IDOK,1,79,46,14
+    LTEXT           "Static",IDC_LABEL,1,2,99,83
+END
+
+IDD_INPUT DIALOG DISCARDABLE  0, 0, 101, 76
+STYLE DS_MODALFRAME | WS_POPUP
+FONT 8, "System"
+BEGIN
+    LTEXT           "Static",IDC_LABEL,1,2,99,39
+    EDITTEXT        IDC_EDIT,1,42,99,14,ES_MULTILINE | ES_AUTOVSCROLL | 
+                    ES_AUTOHSCROLL | ES_WANTRETURN | WS_VSCROLL
+    PUSHBUTTON      "OK",IDOK,1,60,46,14
+    PUSHBUTTON      "Cancel",IDCANCEL,53,60,47,14
+END
+
+IDD_BIGMESSAGE DIALOG DISCARDABLE  0, 0, 125, 86
+STYLE DS_MODALFRAME | WS_POPUP
+FONT 8, "System"
+BEGIN
+    PUSHBUTTON      "OK",IDOK,34,65,56,14
+    EDITTEXT        IDC_LABEL_SCROLL,7,7,111,53,ES_MULTILINE | 
+                    ES_AUTOVSCROLL | ES_READONLY | ES_WANTRETURN | NOT 
+                    WS_BORDER | WS_VSCROLL
+END
+
+IDD_SELDIR DIALOG DISCARDABLE  0, 0, 101, 105
+STYLE DS_MODALFRAME | WS_POPUP
+FONT 8, "System"
+BEGIN
+    LTEXT           "Static",IDC_LABEL,1,2,99,23
+    PUSHBUTTON      "OK",IDOK,1,89,46,14
+    PUSHBUTTON      "Cancel",IDCANCEL,53,89,47,14
+    CONTROL         "Tree1",IDC_TREE,"SysTreeView32",TVS_HASBUTTONS | 
+                    TVS_HASLINES | TVS_SHOWSELALWAYS | WS_BORDER | 
+                    WS_TABSTOP,1,25,99,62
+END
+
+IDD_SELFILE DIALOG DISCARDABLE  0, 0, 101, 105
+STYLE DS_MODALFRAME | WS_POPUP
+FONT 8, "System"
+BEGIN
+    LTEXT           "Static",IDC_LABEL,1,2,99,23
+    CONTROL         "Tree1",IDC_TREE,"SysTreeView32",TVS_HASBUTTONS | 
+                    TVS_HASLINES | TVS_SHOWSELALWAYS | WS_BORDER | 
+                    WS_TABSTOP,1,25,99,30
+    EDITTEXT        IDC_FILE,0,57,100,13,ES_AUTOHSCROLL
+    LISTBOX         IDC_FILES,1,70,99,17,LBS_SORT | LBS_NOINTEGRALHEIGHT | 
+                    WS_VSCROLL | WS_HSCROLL | WS_TABSTOP
+    PUSHBUTTON      "OK",IDOK,1,89,46,14
+    PUSHBUTTON      "Cancel",IDCANCEL,53,89,47,14
+END
+
+IDD_STATUS DIALOG DISCARDABLE  0, 0, 137, 154
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "JScript"
+FONT 8, "System"
+BEGIN
+    LTEXT           "Description\nx\ny\nz",IDC_INFO,7,7,123,32
+    LISTBOX         IDC_ENTRIES,7,41,123,81,LBS_NOINTEGRALHEIGHT | 
+                    WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Cancel",IDCANCEL,7,128,123,19
+    LTEXT           "Static",IDC_STATUS_MSG,7,41,123,87
+END
+
+IDD_WORD DIALOG DISCARDABLE  0, 0, 99, 15
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+FONT 10, "System"
+BEGIN
+    EDITTEXT        IDC_WORD,0,0,96,12,ES_AUTOHSCROLL
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_CHOICE, DIALOG
+    BEGIN
+        LEFTMARGIN, 1
+        RIGHTMARGIN, 100
+        TOPMARGIN, 2
+        BOTTOMMARGIN, 103
+        HORZGUIDE, 25
+    END
+
+    IDD_WAIT, DIALOG
+    BEGIN
+        LEFTMARGIN, 1
+        RIGHTMARGIN, 100
+        TOPMARGIN, 2
+        BOTTOMMARGIN, 96
+        HORZGUIDE, 25
+    END
+
+    IDD_INPUT, DIALOG
+    BEGIN
+        LEFTMARGIN, 1
+        RIGHTMARGIN, 100
+        TOPMARGIN, 2
+        BOTTOMMARGIN, 74
+        HORZGUIDE, 25
+    END
+
+    IDD_BIGMESSAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 118
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 79
+    END
+
+    IDD_SELDIR, DIALOG
+    BEGIN
+        LEFTMARGIN, 1
+        RIGHTMARGIN, 100
+        TOPMARGIN, 2
+        BOTTOMMARGIN, 103
+        HORZGUIDE, 25
+    END
+
+    IDD_SELFILE, DIALOG
+    BEGIN
+        LEFTMARGIN, 1
+        RIGHTMARGIN, 100
+        TOPMARGIN, 2
+        BOTTOMMARGIN, 103
+        HORZGUIDE, 25
+    END
+
+    IDD_STATUS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 130
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 147
+        HORZGUIDE, 128
+    END
+
+    IDD_WORD, DIALOG
+    BEGIN
+        RIGHTMARGIN, 96
+        BOTTOMMARGIN, 13
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_DIR_ICONS           BITMAP  DISCARDABLE     "res\\bitmap1.bmp"
+IDB_DIR_ICONS_BIG       BITMAP  DISCARDABLE     "res\\bmp00003.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menubar
+//
+
+IDR_OK MENU DISCARDABLE 
+BEGIN
+    MENUITEM "OK",                          IDOK
+END
+
+IDR_OKCANCEL MENU DISCARDABLE 
+BEGIN
+    MENUITEM "OK",                          IDOK
+    MENUITEM "Cancel",                      IDCANCEL
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Data
+//
+
+IDR_OK SHMENUBAR DISCARDABLE 
+BEGIN
+    IDR_OK, 1,
+    I_IMAGENONE, IDOK, TBSTATE_ENABLED, TBSTYLE_AUTOSIZE, IDS_HELLO_OK, 0, 
+    NOMENU,
+END
+
+IDR_OKCANCEL SHMENUBAR DISCARDABLE 
+BEGIN
+    IDR_OKCANCEL, 2,
+    I_IMAGENONE, IDOK, TBSTATE_ENABLED, TBSTYLE_AUTOSIZE, IDS_HELLO_OK, 0, 
+    NOMENU,
+    I_IMAGENONE, IDCANCEL, TBSTATE_ENABLED, TBSTYLE_AUTOSIZE, IDS_CAP_CANCEL, 
+    0, NOMENU,
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_HELLO_OK            "OK"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_CAP_CANCEL          "Cancel"
+END
+
+#endif    // Chinese (P.R.C.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""newres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

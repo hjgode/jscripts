@@ -1,0 +1,9 @@
+setup: Setup programs for Windows Mobile devices, run from your PC
+cab: Setup archives for Windows Mobile devices, copy to your WM device and open it there
+bin: Device binaries, copy them to your device and run MortScript.exe to register
+
+PPC = PocketPC (also Phone Edition)
+SP  = Smartphone (those things without touchscreen)
+PNA = PocketNavigation (stripped down systems for navigation, might not work on every device!)
+PC  = Desktop PC (Windows 2000/XP/Vista)
+
