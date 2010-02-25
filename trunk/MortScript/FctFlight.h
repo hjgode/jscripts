@@ -1,1 +1,0 @@
-DWORD Flight(int State);

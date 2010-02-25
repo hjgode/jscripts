@@ -1,9 +1,0 @@
-MortScript V4.11 beta
-
-A (quite) simple batch/scripting language for Windows Mobile.
-
-I don't offer any warranty for any damages caused by the program!
-There shoudn't happen anything in theory, but backups never harm...
-
-For more informations visit
-http://www.sto-helit.de

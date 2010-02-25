@@ -1,2 +1,0 @@
-void Vibrate();
-void VibrateStop();
