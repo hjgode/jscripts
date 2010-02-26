@@ -364,8 +364,103 @@ bool CStr::StartsWith(LPCTSTR lpszSub) const
 	return ( wcsncmp( stringData.data, lpszSub, len ) == 0 );
 }
 
+CStr CStr::Get(LPCTSTR lpszBegin, LPCTSTR lpszEnd,LPCTSTR lpszPrevSrch,bool InCluded){
+	int be=0;
+	CStr tStr = stringData.data;
+	if (lpszPrevSrch){
+		be = tStr.Find(lpszPrevSrch);
+		if (be == -1) return L"";
+		be += wcslen(lpszPrevSrch);
+	}
+	if (be<0) be = 0;
+	return Get(lpszBegin,lpszEnd,be,InCluded);
+}
+
+CStr CStr::Get(LPCTSTR lpszBegin, LPCTSTR lpszEnd,int &be,bool InCluded){
+	int ed,lb,le;
+	CStr tStr = stringData.data;
+	if ((be = tStr.Find(lpszBegin,be))!=-1){
+		lb = wcslen(lpszBegin);
+		if (lpszEnd)
+		{
+			if ((ed = tStr.Find(lpszEnd,be+lb))!=-1){
+				le = wcslen(lpszEnd);
+				int beo = be;
+				be = ed;
+				if (InCluded)
+				{	
+					return tStr.Mid(beo,ed-beo+le);
+				}
+				else
+				{
+					return tStr.Mid(beo+lb,ed-(beo+lb));
+				}
+			}
+		}
+		else
+		{
+			if (InCluded)
+			{
+				return tStr.Mid(be);
+			}
+			else
+			{
+				return tStr.Mid(be+lb);
+			}
+		}
+	}
+	return L"";
+}
+
+CStr CStr::Get(LPCTSTR lpszBegin, LPCTSTR lpszEnd,bool InCluded){
+	return Get(lpszBegin,lpszEnd,NULL,InCluded);
+}
+
+
+//Get substr from str in no case
+CStr CStr::GetNoCase(LPCTSTR lpszBegin, LPCTSTR lpszEnd,LPCTSTR lpszPrevSrch,bool InCluded){
+	int be=0;
+	CStr tStr(stringData.data);
+	if (lpszPrevSrch) 
+	{
+		be = tStr.FindNoCase(lpszPrevSrch);
+		if (be == -1) return L"";
+		be += wcslen(lpszPrevSrch);
+	}
+	if (be<0) be = 0;
+	return GetNoCase(lpszBegin,lpszEnd,be,InCluded);
+}
+
+//Get substr from str in no case
+CStr CStr::GetNoCase(LPCTSTR lpszBegin, LPCTSTR lpszEnd,int &be,bool InCluded){
+	int ed,lb,le;
+	CStr tStr(stringData.data);
+	if ((be = tStr.FindNoCase(lpszBegin,be))!=-1){
+		lb = wcslen(lpszBegin);
+		if ((ed = tStr.FindNoCase(lpszEnd,be+lb))!=-1){
+			le = wcslen(lpszEnd);
+			int beo = be;
+			be = ed + le;
+			if (InCluded)
+			{
+				return tStr.Mid(beo,ed-beo+le);
+			}
+			else
+			{
+				return tStr.Mid(beo+lb,ed-(beo+lb));
+			}
+		}
+	}
+	return L"";
+}
+
+CStr CStr::GetNoCase(LPCTSTR lpszBegin, LPCTSTR lpszEnd,bool InCluded){
+	return GetNoCase(lpszBegin,lpszEnd,NULL,InCluded);
+}
+
 //extern Debug(LPCTSTR ,long);
-// check beginning of string
+// check ending of string
+// check ending of string
 bool CStr::EndsWith(LPCTSTR lpszSub) const
 {
 	int len = wcslen( lpszSub );
@@ -373,18 +468,8 @@ bool CStr::EndsWith(LPCTSTR lpszSub) const
 	olen = stringData.nDataLength-1;
 	if ( olen < len )
 		return false;
-	
-	int j = len-1; int i = olen - 1;
-	TCHAR c1,c2;
-	while(j>=0){
-		c1=stringData.data[i];
-		c2=lpszSub[j];
-		if (c1 != c2) return false;
-		if (i==0) break;
-		j--;i--;
-	}
 
-	return true;
+	return ( wcsncmp(stringData.data+(olen-len),lpszSub,len)==0);
 }
 
 void CStr::MakeUpper()

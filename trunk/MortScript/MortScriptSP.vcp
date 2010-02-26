@@ -235,7 +235,7 @@ RSC=rc.exe
 # ADD RSC /l 0x409 /d UNDER_CE=$(CEVersion) /d _WIN32_WCE=$(CEVersion) /d "NDEBUG" /d "UNICODE" /d "_UNICODE" /d "$(CePlatform)" /d "ARM" /d "_ARM_" /d "ARMV4" /r
 CPP=clarm.exe
 # ADD BASE CPP /nologo /W3 /D "SMARTPHONE" /D _WIN32_WCE=300 /D WIN32_PLATFORM_PSPC=310 /D "ARM" /D "_ARM_" /D "ARMV4" /D UNDER_CE=300 /D "UNICODE" /D "_UNICODE" /D "NDEBUG" /YX /O2 /M$(CECrtMT) /c
-# ADD CPP /nologo /Oxs /I "..\MortTools\Types" /D "SMARTPHONE" /D _WIN32_WCE=300 /D WIN32_PLATFORM_PSPC=310 /D "ARM" /D "_ARM_" /D "ARMV4" /D UNDER_CE=300 /D "UNICODE" /D "_UNICODE" /D "NDEBUG" /D "CELE" /Fr /YX /M$(CECrtMT) /c
+# ADD CPP /nologo /Oxs /I "..\MortTools\Types" /D "SMARTPHONE" /D _WIN32_WCE=300 /D WIN32_PLATFORM_PSPC=310 /D "ARM" /D "_ARM_" /D "ARMV4" /D UNDER_CE=300 /D "UNICODE" /D "_UNICODE" /D "NDEBUG" /D "CELE" /D "JWZ" /Fr /YX /M$(CECrtMT) /c
 MTL=midl.exe
 # ADD BASE MTL /nologo /D "NDEBUG" /mktyplib203 /o "NUL" /win32
 # ADD MTL /nologo /D "NDEBUG" /mktyplib203 /o "NUL" /win32
@@ -275,7 +275,7 @@ RSC=rc.exe
 # ADD RSC /l 0x409 /d UNDER_CE=$(CEVersion) /d _WIN32_WCE=$(CEVersion) /d "NDEBUG" /d "UNICODE" /d "_UNICODE" /d "$(CePlatform)" /d "ARM" /d "_ARM_" /d "ARMV4" /r
 CPP=clarm.exe
 # ADD BASE CPP /nologo /Oxs /D "SMARTPHONE" /D _WIN32_WCE=300 /D WIN32_PLATFORM_PSPC=310 /D "ARM" /D "_ARM_" /D "ARMV4" /D UNDER_CE=300 /D "UNICODE" /D "_UNICODE" /D "NDEBUG" /Fr /YX /M$(CECrtMT) /c
-# ADD CPP /nologo /Oxs /I "..\MortTools\Types" /D "SMARTPHONE" /D _WIN32_WCE=300 /D WIN32_PLATFORM_PSPC=310 /D "ARM" /D "_ARM_" /D "ARMV4" /D UNDER_CE=300 /D "UNICODE" /D "_UNICODE" /D "JWZ" /Fr /YX /D /M$(CECrtMT) /c
+# ADD CPP /nologo /Oxs /I "..\MortTools\Types" /D "SMARTPHONE" /D _WIN32_WCE=300 /D WIN32_PLATFORM_PSPC=310 /D "ARM" /D "_ARM_" /D "ARMV4" /D UNDER_CE=300 /D "UNICODE" /D "_UNICODE" /D "JWZ" /D "CELE" /Fr /YX /D /M$(CECrtMT) /c
 MTL=midl.exe
 # ADD BASE MTL /nologo /D "NDEBUG" /mktyplib203 /o "NUL" /win32
 # ADD MTL /nologo /D "NDEBUG" /mktyplib203 /o "NUL" /win32
@@ -313,13 +313,13 @@ SOURCE=.\SmartPhone\MortRunnerSP.cpp
 !IF  "$(CFG)" == "MortRunnerSP - Win32 (WCE emulator) Release"
 
 DEP_CPP_MORTR=\
-	".\ExprParser.h"\
 	".\Interpreter.h"\
 	".\ParseCmdLine.h"\
 	".\SmartPhone\DlgWait.h"\
 	".\SmartPhone\mortafx.h"\
 	
 NODEP_CPP_MORTR=\
+	".\ExprParser.h"\
 	".\ibrate.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
@@ -335,7 +335,6 @@ NODEP_CPP_MORTR=\
 !ELSEIF  "$(CFG)" == "MortRunnerSP - Win32 (WCE emulator) Debug"
 
 DEP_CPP_MORTR=\
-	".\ExprParser.h"\
 	".\Helpers.h"\
 	".\Interpreter.h"\
 	".\ParseCmdLine.h"\
@@ -346,6 +345,7 @@ DEP_CPP_MORTR=\
 	
 NODEP_CPP_MORTR=\
 	"..\..\vc6\mortrunner\stdafx.h"\
+	".\ExprParser.h"\
 	".\ibrate.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
@@ -366,7 +366,6 @@ NODEP_CPP_MORTR=\
 !ELSEIF  "$(CFG)" == "MortRunnerSP - Win32 (WCE ARMV4) Debug"
 
 DEP_CPP_MORTR=\
-	".\ExprParser.h"\
 	".\Helpers.h"\
 	".\Interpreter.h"\
 	".\ParseCmdLine.h"\
@@ -374,6 +373,7 @@ DEP_CPP_MORTR=\
 	".\SmartPhone\mortafx.h"\
 	
 NODEP_CPP_MORTR=\
+	".\ExprParser.h"\
 	".\ibrate.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
@@ -417,13 +417,13 @@ NODEP_CPP_MORTR=\
 !ELSEIF  "$(CFG)" == "MortRunnerSP - Win32 (WCE ARMV4) Debug PNA"
 
 DEP_CPP_MORTR=\
-	".\ExprParser.h"\
 	".\Interpreter.h"\
 	".\ParseCmdLine.h"\
 	".\SmartPhone\DlgWait.h"\
 	".\SmartPhone\mortafx.h"\
 	
 NODEP_CPP_MORTR=\
+	".\ExprParser.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
 	".\SmartPhone\CMapStringToPtr.h"\
@@ -465,6 +465,9 @@ DEP_CPP_MORTR=\
 	{$(INCLUDE)}"vibrate.h"\
 	{$(INCLUDE)}"winuserm.h"\
 	
+NODEP_CPP_MORTR=\
+	".\vc6\resource.h"\
+	
 
 !ELSEIF  "$(CFG)" == "MortRunnerSP - Win32 (WCE ARMV4) Release SP jwz"
 
@@ -490,6 +493,13 @@ DEP_CPP_MORTR=\
 	".\SmartPhone\DlgWait.h"\
 	".\SmartPhone\mortafx.h"\
 	".\variables.h"\
+	{$(INCLUDE)}"aygshell.h"\
+	{$(INCLUDE)}"sipapi.h"\
+	{$(INCLUDE)}"vibrate.h"\
+	{$(INCLUDE)}"winuserm.h"\
+	
+NODEP_CPP_MORTR=\
+	".\vc6\resource.h"\
 	
 
 !ENDIF 
@@ -682,6 +692,9 @@ DEP_CPP_PARSE=\
 	{$(INCLUDE)}"vibrate.h"\
 	{$(INCLUDE)}"winuserm.h"\
 	
+NODEP_CPP_PARSE=\
+	".\vc6\resource.h"\
+	
 
 !ELSEIF  "$(CFG)" == "MortRunnerSP - Win32 (WCE ARMV4) Release SP jwz"
 
@@ -706,6 +719,13 @@ DEP_CPP_PARSE=\
 	".\SmartPhone\mortafx.h"\
 	".\SmartPhone\MortRunnerSP.h"\
 	".\StdAfx.h"\
+	{$(INCLUDE)}"aygshell.h"\
+	{$(INCLUDE)}"sipapi.h"\
+	{$(INCLUDE)}"vibrate.h"\
+	{$(INCLUDE)}"winuserm.h"\
+	
+NODEP_CPP_PARSE=\
+	".\vc6\resource.h"\
 	
 
 !ENDIF 
@@ -754,11 +774,11 @@ SOURCE=.\SmartPhone\DlgBigMessage.cpp
 !IF  "$(CFG)" == "MortRunnerSP - Win32 (WCE emulator) Release"
 
 DEP_CPP_DLGBI=\
-	".\ExprParser.h"\
 	".\SmartPhone\DlgBigMessage.h"\
 	".\SmartPhone\mortafx.h"\
 	
 NODEP_CPP_DLGBI=\
+	".\ExprParser.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
 	".\SmartPhone\CMapStringToPtr.h"\
@@ -774,7 +794,6 @@ NODEP_CPP_DLGBI=\
 !ELSEIF  "$(CFG)" == "MortRunnerSP - Win32 (WCE emulator) Debug"
 
 DEP_CPP_DLGBI=\
-	".\ExprParser.h"\
 	".\SmartPhone\DlgBigMessage.h"\
 	".\SmartPhone\mortafx.h"\
 	".\StdAfx.h"\
@@ -782,6 +801,7 @@ DEP_CPP_DLGBI=\
 	
 NODEP_CPP_DLGBI=\
 	"..\..\vc6\mortrunner\stdafx.h"\
+	".\ExprParser.h"\
 	".\ibrate.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
@@ -802,11 +822,11 @@ NODEP_CPP_DLGBI=\
 !ELSEIF  "$(CFG)" == "MortRunnerSP - Win32 (WCE ARMV4) Debug"
 
 DEP_CPP_DLGBI=\
-	".\ExprParser.h"\
 	".\SmartPhone\DlgBigMessage.h"\
 	".\SmartPhone\mortafx.h"\
 	
 NODEP_CPP_DLGBI=\
+	".\ExprParser.h"\
 	".\ibrate.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
@@ -846,11 +866,11 @@ NODEP_CPP_DLGBI=\
 !ELSEIF  "$(CFG)" == "MortRunnerSP - Win32 (WCE ARMV4) Debug PNA"
 
 DEP_CPP_DLGBI=\
-	".\ExprParser.h"\
 	".\SmartPhone\DlgBigMessage.h"\
 	".\SmartPhone\mortafx.h"\
 	
 NODEP_CPP_DLGBI=\
+	".\ExprParser.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
 	".\SmartPhone\CMapStringToPtr.h"\
@@ -888,6 +908,9 @@ DEP_CPP_DLGBI=\
 	{$(INCLUDE)}"vibrate.h"\
 	{$(INCLUDE)}"winuserm.h"\
 	
+NODEP_CPP_DLGBI=\
+	".\vc6\resource.h"\
+	
 
 !ELSEIF  "$(CFG)" == "MortRunnerSP - Win32 (WCE ARMV4) Release SP jwz"
 
@@ -909,6 +932,13 @@ DEP_CPP_DLGBI=\
 	".\Interpreter.h"\
 	".\SmartPhone\DlgBigMessage.h"\
 	".\SmartPhone\mortafx.h"\
+	{$(INCLUDE)}"aygshell.h"\
+	{$(INCLUDE)}"sipapi.h"\
+	{$(INCLUDE)}"vibrate.h"\
+	{$(INCLUDE)}"winuserm.h"\
+	
+NODEP_CPP_DLGBI=\
+	".\vc6\resource.h"\
 	
 
 !ENDIF 
@@ -1054,6 +1084,9 @@ DEP_CPP_DLGCH=\
 	{$(INCLUDE)}"vibrate.h"\
 	{$(INCLUDE)}"winuserm.h"\
 	
+NODEP_CPP_DLGCH=\
+	".\vc6\resource.h"\
+	
 
 !ELSEIF  "$(CFG)" == "MortRunnerSP - Win32 (WCE ARMV4) Release SP jwz"
 
@@ -1075,6 +1108,13 @@ DEP_CPP_DLGCH=\
 	".\Interpreter.h"\
 	".\SmartPhone\DlgChoice.h"\
 	".\SmartPhone\mortafx.h"\
+	{$(INCLUDE)}"aygshell.h"\
+	{$(INCLUDE)}"sipapi.h"\
+	{$(INCLUDE)}"vibrate.h"\
+	{$(INCLUDE)}"winuserm.h"\
+	
+NODEP_CPP_DLGCH=\
+	".\vc6\resource.h"\
 	
 
 !ENDIF 
@@ -1220,6 +1260,9 @@ DEP_CPP_DLGIN=\
 	{$(INCLUDE)}"vibrate.h"\
 	{$(INCLUDE)}"winuserm.h"\
 	
+NODEP_CPP_DLGIN=\
+	".\vc6\resource.h"\
+	
 
 !ELSEIF  "$(CFG)" == "MortRunnerSP - Win32 (WCE ARMV4) Release SP jwz"
 
@@ -1241,6 +1284,13 @@ DEP_CPP_DLGIN=\
 	".\Interpreter.h"\
 	".\SmartPhone\DlgInput.h"\
 	".\SmartPhone\mortafx.h"\
+	{$(INCLUDE)}"aygshell.h"\
+	{$(INCLUDE)}"sipapi.h"\
+	{$(INCLUDE)}"vibrate.h"\
+	{$(INCLUDE)}"winuserm.h"\
+	
+NODEP_CPP_DLGIN=\
+	".\vc6\resource.h"\
 	
 
 !ENDIF 
@@ -1403,6 +1453,9 @@ DEP_CPP_DLGSE=\
 	{$(INCLUDE)}"vibrate.h"\
 	{$(INCLUDE)}"winuserm.h"\
 	
+NODEP_CPP_DLGSE=\
+	".\vc6\resource.h"\
+	
 
 !ELSEIF  "$(CFG)" == "MortRunnerSP - Win32 (WCE ARMV4) Release SP jwz"
 
@@ -1424,6 +1477,13 @@ DEP_CPP_DLGSE=\
 	".\Interpreter.h"\
 	".\SmartPhone\DlgSelDir.h"\
 	".\SmartPhone\mortafx.h"\
+	{$(INCLUDE)}"aygshell.h"\
+	{$(INCLUDE)}"sipapi.h"\
+	{$(INCLUDE)}"vibrate.h"\
+	{$(INCLUDE)}"winuserm.h"\
+	
+NODEP_CPP_DLGSE=\
+	".\vc6\resource.h"\
 	
 
 !ENDIF 
@@ -1586,6 +1646,9 @@ DEP_CPP_DLGSEL=\
 	{$(INCLUDE)}"vibrate.h"\
 	{$(INCLUDE)}"winuserm.h"\
 	
+NODEP_CPP_DLGSEL=\
+	".\vc6\resource.h"\
+	
 
 !ELSEIF  "$(CFG)" == "MortRunnerSP - Win32 (WCE ARMV4) Release SP jwz"
 
@@ -1607,6 +1670,13 @@ DEP_CPP_DLGSEL=\
 	".\Interpreter.h"\
 	".\SmartPhone\DlgSelFile.h"\
 	".\SmartPhone\mortafx.h"\
+	{$(INCLUDE)}"aygshell.h"\
+	{$(INCLUDE)}"sipapi.h"\
+	{$(INCLUDE)}"vibrate.h"\
+	{$(INCLUDE)}"winuserm.h"\
+	
+NODEP_CPP_DLGSEL=\
+	".\vc6\resource.h"\
 	
 
 !ENDIF 
@@ -1623,11 +1693,11 @@ SOURCE=.\SmartPhone\DlgWait.cpp
 !IF  "$(CFG)" == "MortRunnerSP - Win32 (WCE emulator) Release"
 
 DEP_CPP_DLGWA=\
-	".\ExprParser.h"\
 	".\SmartPhone\DlgWait.h"\
 	".\SmartPhone\mortafx.h"\
 	
 NODEP_CPP_DLGWA=\
+	".\ExprParser.h"\
 	".\ibrate.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
@@ -1643,7 +1713,6 @@ NODEP_CPP_DLGWA=\
 !ELSEIF  "$(CFG)" == "MortRunnerSP - Win32 (WCE emulator) Debug"
 
 DEP_CPP_DLGWA=\
-	".\ExprParser.h"\
 	".\SmartPhone\DlgWait.h"\
 	".\SmartPhone\mortafx.h"\
 	".\StdAfx.h"\
@@ -1651,6 +1720,7 @@ DEP_CPP_DLGWA=\
 	
 NODEP_CPP_DLGWA=\
 	"..\..\vc6\mortrunner\stdafx.h"\
+	".\ExprParser.h"\
 	".\ibrate.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
@@ -1671,11 +1741,11 @@ NODEP_CPP_DLGWA=\
 !ELSEIF  "$(CFG)" == "MortRunnerSP - Win32 (WCE ARMV4) Debug"
 
 DEP_CPP_DLGWA=\
-	".\ExprParser.h"\
 	".\SmartPhone\DlgWait.h"\
 	".\SmartPhone\mortafx.h"\
 	
 NODEP_CPP_DLGWA=\
+	".\ExprParser.h"\
 	".\ibrate.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
@@ -1715,11 +1785,11 @@ NODEP_CPP_DLGWA=\
 !ELSEIF  "$(CFG)" == "MortRunnerSP - Win32 (WCE ARMV4) Debug PNA"
 
 DEP_CPP_DLGWA=\
-	".\ExprParser.h"\
 	".\SmartPhone\DlgWait.h"\
 	".\SmartPhone\mortafx.h"\
 	
 NODEP_CPP_DLGWA=\
+	".\ExprParser.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
 	".\SmartPhone\CMapStringToPtr.h"\
@@ -1757,6 +1827,9 @@ DEP_CPP_DLGWA=\
 	{$(INCLUDE)}"vibrate.h"\
 	{$(INCLUDE)}"winuserm.h"\
 	
+NODEP_CPP_DLGWA=\
+	".\vc6\resource.h"\
+	
 
 !ELSEIF  "$(CFG)" == "MortRunnerSP - Win32 (WCE ARMV4) Release SP jwz"
 
@@ -1778,6 +1851,13 @@ DEP_CPP_DLGWA=\
 	".\Interpreter.h"\
 	".\SmartPhone\DlgWait.h"\
 	".\SmartPhone\mortafx.h"\
+	{$(INCLUDE)}"aygshell.h"\
+	{$(INCLUDE)}"sipapi.h"\
+	{$(INCLUDE)}"vibrate.h"\
+	{$(INCLUDE)}"winuserm.h"\
+	
+NODEP_CPP_DLGWA=\
+	".\vc6\resource.h"\
 	
 
 !ENDIF 
@@ -1802,7 +1882,6 @@ DEP_CPP_INTER=\
 	".\DlgDownload.h"\
 	".\DlgInput.h"\
 	".\DlgWait.h"\
-	".\ExprParser.h"\
 	".\IniFile.h"\
 	".\Interpreter.h"\
 	".\MortScriptApp.h"\
@@ -1815,6 +1894,7 @@ DEP_CPP_INTER=\
 	
 NODEP_CPP_INTER=\
 	"..\..\vc6\mortrunner\stdafx.h"\
+	".\ExprParser.h"\
 	".\eybd.h"\
 	".\ibrate.h"\
 	".\inuserm.h"\
@@ -1835,7 +1915,6 @@ NODEP_CPP_INTER=\
 
 DEP_CPP_INTER=\
 	".\DlgChoice.h"\
-	".\ExprParser.h"\
 	".\Helpers.h"\
 	".\IniFile.h"\
 	".\Interpreter.h"\
@@ -1847,6 +1926,7 @@ DEP_CPP_INTER=\
 	
 NODEP_CPP_INTER=\
 	"..\..\vc6\mortrunner\stdafx.h"\
+	".\ExprParser.h"\
 	".\eybd.h"\
 	".\ibrate.h"\
 	".\inuserm.h"\
@@ -1870,7 +1950,6 @@ NODEP_CPP_INTER=\
 
 DEP_CPP_INTER=\
 	".\DlgChoice.h"\
-	".\ExprParser.h"\
 	".\Helpers.h"\
 	".\IniFile.h"\
 	".\Interpreter.h"\
@@ -1881,6 +1960,7 @@ DEP_CPP_INTER=\
 	
 NODEP_CPP_INTER=\
 	"..\..\vc6\mortrunner\stdafx.h"\
+	".\ExprParser.h"\
 	".\eybd.h"\
 	".\ibrate.h"\
 	".\inuserm.h"\
@@ -1917,13 +1997,13 @@ DEP_CPP_INTER=\
 	".\SmartPhone\mortafx.h"\
 	".\StdAfx.h"\
 	".\variables.h"\
-	".\vc6\stdafx.h"\
 	
 NODEP_CPP_INTER=\
 	".\eybd.h"\
 	".\ibrate.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
+	".\vc6\stdafx.h"\
 	".\ygshell.h"\
 	
 
@@ -1934,7 +2014,6 @@ DEP_CPP_INTER=\
 	".\DlgDownload.h"\
 	".\DlgInput.h"\
 	".\DlgWait.h"\
-	".\ExprParser.h"\
 	".\IniFile.h"\
 	".\Interpreter.h"\
 	".\MortScriptApp.h"\
@@ -1947,6 +2026,7 @@ DEP_CPP_INTER=\
 	
 NODEP_CPP_INTER=\
 	"..\..\vc6\mortrunner\stdafx.h"\
+	".\ExprParser.h"\
 	".\eybd.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
@@ -1988,12 +2068,15 @@ DEP_CPP_INTER=\
 	".\SmartPhone\mortafx.h"\
 	".\StdAfx.h"\
 	".\variables.h"\
-	".\vc6\stdafx.h"\
 	{$(INCLUDE)}"aygshell.h"\
 	{$(INCLUDE)}"keybd.h"\
 	{$(INCLUDE)}"sipapi.h"\
 	{$(INCLUDE)}"vibrate.h"\
 	{$(INCLUDE)}"winuserm.h"\
+	
+NODEP_CPP_INTER=\
+	".\vc6\resource.h"\
+	".\vc6\stdafx.h"\
 	
 
 !ELSEIF  "$(CFG)" == "MortRunnerSP - Win32 (WCE ARMV4) Release SP jwz"
@@ -2022,14 +2105,15 @@ DEP_CPP_INTER=\
 	".\SmartPhone\mortafx.h"\
 	".\StdAfx.h"\
 	".\variables.h"\
-	".\vc6\stdafx.h"\
+	{$(INCLUDE)}"aygshell.h"\
+	{$(INCLUDE)}"keybd.h"\
+	{$(INCLUDE)}"sipapi.h"\
+	{$(INCLUDE)}"vibrate.h"\
+	{$(INCLUDE)}"winuserm.h"\
 	
 NODEP_CPP_INTER=\
-	".\eybd.h"\
-	".\ibrate.h"\
-	".\inuserm.h"\
-	".\ipapi.h"\
-	".\ygshell.h"\
+	".\vc6\resource.h"\
+	".\vc6\stdafx.h"\
 	
 
 !ENDIF 
@@ -2310,6 +2394,9 @@ DEP_CPP_HELPE=\
 	".\IniFile.h"\
 	".\Interpreter.h"\
 	
+NODEP_CPP_HELPE=\
+	".\vc6\resource.h"\
+	
 
 !ELSEIF  "$(CFG)" == "MortRunnerSP - Win32 (WCE ARMV4) Release SP jwz"
 
@@ -2338,6 +2425,9 @@ DEP_CPP_HELPE=\
 	".\Helpers.h"\
 	".\IniFile.h"\
 	".\Interpreter.h"\
+	
+NODEP_CPP_HELPE=\
+	".\vc6\resource.h"\
 	
 
 !ENDIF 
@@ -2436,12 +2526,12 @@ DEP_CPP_INIFI=\
 	".\Interpreter.h"\
 	".\SmartPhone\mortafx.h"\
 	".\StdAfx.h"\
-	".\vc6\stdafx.h"\
 	
 NODEP_CPP_INIFI=\
 	".\ibrate.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
+	".\vc6\stdafx.h"\
 	".\ygshell.h"\
 	
 
@@ -2487,11 +2577,14 @@ DEP_CPP_INIFI=\
 	".\Interpreter.h"\
 	".\SmartPhone\mortafx.h"\
 	".\StdAfx.h"\
-	".\vc6\stdafx.h"\
 	{$(INCLUDE)}"aygshell.h"\
 	{$(INCLUDE)}"sipapi.h"\
 	{$(INCLUDE)}"vibrate.h"\
 	{$(INCLUDE)}"winuserm.h"\
+	
+NODEP_CPP_INIFI=\
+	".\vc6\resource.h"\
+	".\vc6\stdafx.h"\
 	
 
 !ELSEIF  "$(CFG)" == "MortRunnerSP - Win32 (WCE ARMV4) Release SP jwz"
@@ -2514,6 +2607,13 @@ DEP_CPP_INIFI=\
 	".\Interpreter.h"\
 	".\SmartPhone\mortafx.h"\
 	".\StdAfx.h"\
+	{$(INCLUDE)}"aygshell.h"\
+	{$(INCLUDE)}"sipapi.h"\
+	{$(INCLUDE)}"vibrate.h"\
+	{$(INCLUDE)}"winuserm.h"\
+	
+NODEP_CPP_INIFI=\
+	".\vc6\resource.h"\
 	".\vc6\stdafx.h"\
 	
 
@@ -2531,7 +2631,6 @@ SOURCE=.\variables.cpp
 !IF  "$(CFG)" == "MortRunnerSP - Win32 (WCE emulator) Release"
 
 DEP_CPP_VARIA=\
-	".\ExprParser.h"\
 	".\SmartPhone\mortafx.h"\
 	".\StdAfx.h"\
 	".\variables.h"\
@@ -2539,6 +2638,7 @@ DEP_CPP_VARIA=\
 	
 NODEP_CPP_VARIA=\
 	"..\..\vc6\mortrunner\stdafx.h"\
+	".\ExprParser.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
 	".\MapMortStringToInt.h"\
@@ -2558,13 +2658,13 @@ NODEP_CPP_VARIA=\
 !ELSEIF  "$(CFG)" == "MortRunnerSP - Win32 (WCE emulator) Debug"
 
 DEP_CPP_VARIA=\
-	".\ExprParser.h"\
 	".\SmartPhone\mortafx.h"\
 	".\StdAfx.h"\
 	".\variables.h"\
 	
 NODEP_CPP_VARIA=\
 	"..\..\vc6\mortrunner\stdafx.h"\
+	".\ExprParser.h"\
 	".\ibrate.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
@@ -2585,10 +2685,10 @@ NODEP_CPP_VARIA=\
 !ELSEIF  "$(CFG)" == "MortRunnerSP - Win32 (WCE ARMV4) Debug"
 
 DEP_CPP_VARIA=\
-	".\ExprParser.h"\
 	".\variables.h"\
 	
 NODEP_CPP_VARIA=\
+	".\ExprParser.h"\
 	".\MapMortStringToValue.h"\
 	".\MortTypes.h"\
 	
@@ -2616,7 +2716,6 @@ DEP_CPP_VARIA=\
 !ELSEIF  "$(CFG)" == "MortRunnerSP - Win32 (WCE ARMV4) Debug PNA"
 
 DEP_CPP_VARIA=\
-	".\ExprParser.h"\
 	".\SmartPhone\mortafx.h"\
 	".\StdAfx.h"\
 	".\variables.h"\
@@ -2624,6 +2723,7 @@ DEP_CPP_VARIA=\
 	
 NODEP_CPP_VARIA=\
 	"..\..\vc6\mortrunner\stdafx.h"\
+	".\ExprParser.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
 	".\MapMortStringToInt.h"\
@@ -2659,6 +2759,9 @@ DEP_CPP_VARIA=\
 	".\Interpreter.h"\
 	".\variables.h"\
 	
+NODEP_CPP_VARIA=\
+	".\vc6\resource.h"\
+	
 
 !ELSEIF  "$(CFG)" == "MortRunnerSP - Win32 (WCE ARMV4) Release SP jwz"
 
@@ -2678,6 +2781,9 @@ DEP_CPP_VARIA=\
 	"..\MortTools\Types\ValueArray.h"\
 	".\Interpreter.h"\
 	".\variables.h"\
+	
+NODEP_CPP_VARIA=\
+	".\vc6\resource.h"\
 	
 
 !ENDIF 
@@ -2854,6 +2960,9 @@ DEP_CPP_COMMA=\
 	".\Helpers.h"\
 	".\Interpreter.h"\
 	
+NODEP_CPP_COMMA=\
+	".\vc6\resource.h"\
+	
 
 !ELSEIF  "$(CFG)" == "MortRunnerSP - Win32 (WCE ARMV4) Release SP jwz"
 
@@ -2880,6 +2989,9 @@ DEP_CPP_COMMA=\
 	".\Helpers.h"\
 	".\Interpreter.h"\
 	
+NODEP_CPP_COMMA=\
+	".\vc6\resource.h"\
+	
 
 !ENDIF 
 
@@ -2892,7 +3004,6 @@ SOURCE=.\CommandsData.cpp
 
 DEP_CPP_COMMAN=\
 	".\CommandsWindows.h"\
-	".\ExprParser.h"\
 	".\Helpers.h"\
 	".\IniFile.h"\
 	".\Interpreter.h"\
@@ -2905,6 +3016,7 @@ DEP_CPP_COMMAN=\
 NODEP_CPP_COMMAN=\
 	"..\..\vc6\mortrunner\resource.h"\
 	"..\..\vc6\mortrunner\stdafx.h"\
+	".\ExprParser.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
 	".\MapMortStringToInt.h"\
@@ -2925,7 +3037,6 @@ NODEP_CPP_COMMAN=\
 
 DEP_CPP_COMMAN=\
 	".\CommandsWindows.h"\
-	".\ExprParser.h"\
 	".\Helpers.h"\
 	".\IniFile.h"\
 	".\Interpreter.h"\
@@ -2936,6 +3047,7 @@ DEP_CPP_COMMAN=\
 	
 NODEP_CPP_COMMAN=\
 	"..\..\vc6\mortrunner\stdafx.h"\
+	".\ExprParser.h"\
 	".\ibrate.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
@@ -2957,7 +3069,6 @@ NODEP_CPP_COMMAN=\
 
 DEP_CPP_COMMAN=\
 	".\CommandsWindows.h"\
-	".\ExprParser.h"\
 	".\Helpers.h"\
 	".\IniFile.h"\
 	".\Interpreter.h"\
@@ -2968,6 +3079,7 @@ DEP_CPP_COMMAN=\
 	
 NODEP_CPP_COMMAN=\
 	"..\..\vc6\mortrunner\stdafx.h"\
+	".\ExprParser.h"\
 	".\ibrate.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
@@ -2994,7 +3106,6 @@ DEP_CPP_COMMAN=\
 	"..\MortTools\Types\Value.h"\
 	"..\MortTools\Types\ValueArray.h"\
 	"..\zlib\define.h"\
-	"..\zlib\reg.h"\
 	"..\zlib\TGZX.cpp"\
 	"..\zlib\unibase.h"\
 	"..\zlib\zlib\zconf.h"\
@@ -3007,12 +3118,13 @@ DEP_CPP_COMMAN=\
 	".\SmartPhone\mortafx.h"\
 	".\StdAfx.h"\
 	".\variables.h"\
-	".\vc6\stdafx.h"\
 	
 NODEP_CPP_COMMAN=\
+	"..\zlib\reg.h"\
 	".\ibrate.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
+	".\vc6\stdafx.h"\
 	".\ygshell.h"\
 	
 
@@ -3020,7 +3132,6 @@ NODEP_CPP_COMMAN=\
 
 DEP_CPP_COMMAN=\
 	".\CommandsWindows.h"\
-	".\ExprParser.h"\
 	".\Helpers.h"\
 	".\IniFile.h"\
 	".\Interpreter.h"\
@@ -3033,6 +3144,7 @@ DEP_CPP_COMMAN=\
 NODEP_CPP_COMMAN=\
 	"..\..\vc6\mortrunner\resource.h"\
 	"..\..\vc6\mortrunner\stdafx.h"\
+	".\ExprParser.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
 	".\MapMortStringToInt.h"\
@@ -3066,7 +3178,6 @@ DEP_CPP_COMMAN=\
 	"..\MortTools\Types\Value.h"\
 	"..\MortTools\Types\ValueArray.h"\
 	"..\zlib\define.h"\
-	"..\zlib\reg.h"\
 	"..\zlib\TGZX.cpp"\
 	"..\zlib\unibase.h"\
 	"..\zlib\zlib\zconf.h"\
@@ -3079,11 +3190,15 @@ DEP_CPP_COMMAN=\
 	".\SmartPhone\mortafx.h"\
 	".\StdAfx.h"\
 	".\variables.h"\
-	".\vc6\stdafx.h"\
 	{$(INCLUDE)}"aygshell.h"\
 	{$(INCLUDE)}"sipapi.h"\
 	{$(INCLUDE)}"vibrate.h"\
 	{$(INCLUDE)}"winuserm.h"\
+	
+NODEP_CPP_COMMAN=\
+	"..\zlib\reg.h"\
+	".\vc6\resource.h"\
+	".\vc6\stdafx.h"\
 	
 
 !ELSEIF  "$(CFG)" == "MortRunnerSP - Win32 (WCE ARMV4) Release SP jwz"
@@ -3103,7 +3218,6 @@ DEP_CPP_COMMAN=\
 	"..\MortTools\Types\Value.h"\
 	"..\MortTools\Types\ValueArray.h"\
 	"..\zlib\define.h"\
-	"..\zlib\reg.h"\
 	"..\zlib\TGZX.cpp"\
 	"..\zlib\unibase.h"\
 	"..\zlib\zlib\zconf.h"\
@@ -3116,6 +3230,14 @@ DEP_CPP_COMMAN=\
 	".\SmartPhone\mortafx.h"\
 	".\StdAfx.h"\
 	".\variables.h"\
+	{$(INCLUDE)}"aygshell.h"\
+	{$(INCLUDE)}"sipapi.h"\
+	{$(INCLUDE)}"vibrate.h"\
+	{$(INCLUDE)}"winuserm.h"\
+	
+NODEP_CPP_COMMAN=\
+	"..\zlib\reg.h"\
+	".\vc6\resource.h"\
 	".\vc6\stdafx.h"\
 	
 
@@ -3137,7 +3259,6 @@ DEP_CPP_COMMAND=\
 	".\DlgBigMessage.h"\
 	".\DlgInput.h"\
 	".\DlgWait.h"\
-	".\ExprParser.h"\
 	".\Interpreter.h"\
 	".\MortScriptApp.h"\
 	".\SmartPhone\DlgBigMessage.h"\
@@ -3150,6 +3271,7 @@ DEP_CPP_COMMAND=\
 	
 NODEP_CPP_COMMAND=\
 	"..\..\vc6\mortrunner\stdafx.h"\
+	".\ExprParser.h"\
 	".\Functions.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
@@ -3174,7 +3296,6 @@ DEP_CPP_COMMAND=\
 	".\DlgBigMessage.h"\
 	".\DlgInput.h"\
 	".\DlgWait.h"\
-	".\ExprParser.h"\
 	".\Helpers.h"\
 	".\Interpreter.h"\
 	".\MortScriptApp.h"\
@@ -3187,6 +3308,7 @@ DEP_CPP_COMMAND=\
 	
 NODEP_CPP_COMMAND=\
 	"..\..\vc6\mortrunner\stdafx.h"\
+	".\ExprParser.h"\
 	".\ibrate.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
@@ -3211,7 +3333,6 @@ DEP_CPP_COMMAND=\
 	".\DlgBigMessage.h"\
 	".\DlgInput.h"\
 	".\DlgWait.h"\
-	".\ExprParser.h"\
 	".\Helpers.h"\
 	".\Interpreter.h"\
 	".\MortScriptApp.h"\
@@ -3223,6 +3344,7 @@ DEP_CPP_COMMAND=\
 	
 NODEP_CPP_COMMAND=\
 	"..\..\vc6\mortrunner\stdafx.h"\
+	".\ExprParser.h"\
 	".\ibrate.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
@@ -3260,12 +3382,12 @@ DEP_CPP_COMMAND=\
 	".\SmartPhone\mortafx.h"\
 	".\StdAfx.h"\
 	".\variables.h"\
-	".\vc6\stdafx.h"\
 	
 NODEP_CPP_COMMAND=\
 	".\ibrate.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
+	".\vc6\stdafx.h"\
 	".\ygshell.h"\
 	
 
@@ -3276,7 +3398,6 @@ DEP_CPP_COMMAND=\
 	".\DlgBigMessage.h"\
 	".\DlgInput.h"\
 	".\DlgWait.h"\
-	".\ExprParser.h"\
 	".\Interpreter.h"\
 	".\MortScriptApp.h"\
 	".\SmartPhone\DlgBigMessage.h"\
@@ -3289,6 +3410,7 @@ DEP_CPP_COMMAND=\
 	
 NODEP_CPP_COMMAND=\
 	"..\..\vc6\mortrunner\stdafx.h"\
+	".\ExprParser.h"\
 	".\Functions.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
@@ -3335,11 +3457,14 @@ DEP_CPP_COMMAND=\
 	".\SmartPhone\mortafx.h"\
 	".\StdAfx.h"\
 	".\variables.h"\
-	".\vc6\stdafx.h"\
 	{$(INCLUDE)}"aygshell.h"\
 	{$(INCLUDE)}"sipapi.h"\
 	{$(INCLUDE)}"vibrate.h"\
 	{$(INCLUDE)}"winuserm.h"\
+	
+NODEP_CPP_COMMAND=\
+	".\vc6\resource.h"\
+	".\vc6\stdafx.h"\
 	
 
 !ELSEIF  "$(CFG)" == "MortRunnerSP - Win32 (WCE ARMV4) Release SP jwz"
@@ -3371,6 +3496,13 @@ DEP_CPP_COMMAND=\
 	".\SmartPhone\mortafx.h"\
 	".\StdAfx.h"\
 	".\variables.h"\
+	{$(INCLUDE)}"aygshell.h"\
+	{$(INCLUDE)}"sipapi.h"\
+	{$(INCLUDE)}"vibrate.h"\
+	{$(INCLUDE)}"winuserm.h"\
+	
+NODEP_CPP_COMMAND=\
+	".\vc6\resource.h"\
 	".\vc6\stdafx.h"\
 	
 
@@ -3390,7 +3522,6 @@ SOURCE=.\CommandsFileReg.cpp
 DEP_CPP_COMMANDS=\
 	".\CommandsFileReg.h"\
 	".\DlgDownload.h"\
-	".\ExprParser.h"\
 	".\Helpers.h"\
 	".\IniFile.h"\
 	".\Interpreter.h"\
@@ -3402,6 +3533,7 @@ DEP_CPP_COMMANDS=\
 	
 NODEP_CPP_COMMANDS=\
 	"..\..\vc6\mortrunner\stdafx.h"\
+	".\ExprParser.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
 	".\MapMortStringToInt.h"\
@@ -3426,7 +3558,6 @@ NODEP_CPP_COMMANDS=\
 DEP_CPP_COMMANDS=\
 	".\CommandsFileReg.h"\
 	".\DlgDownload.h"\
-	".\ExprParser.h"\
 	".\Helpers.h"\
 	".\IniFile.h"\
 	".\Interpreter.h"\
@@ -3437,6 +3568,7 @@ DEP_CPP_COMMANDS=\
 	
 NODEP_CPP_COMMANDS=\
 	"..\..\vc6\mortrunner\stdafx.h"\
+	".\ExprParser.h"\
 	".\ibrate.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
@@ -3462,7 +3594,6 @@ NODEP_CPP_COMMANDS=\
 DEP_CPP_COMMANDS=\
 	".\CommandsFileReg.h"\
 	".\DlgDownload.h"\
-	".\ExprParser.h"\
 	".\Helpers.h"\
 	".\IniFile.h"\
 	".\Interpreter.h"\
@@ -3472,6 +3603,7 @@ DEP_CPP_COMMANDS=\
 	
 NODEP_CPP_COMMANDS=\
 	"..\..\vc6\mortrunner\stdafx.h"\
+	".\ExprParser.h"\
 	".\ibrate.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
@@ -3508,7 +3640,6 @@ DEP_CPP_COMMANDS=\
 	".\SmartPhone\mortafx.h"\
 	".\StdAfx.h"\
 	".\variables.h"\
-	".\vc6\stdafx.h"\
 	
 NODEP_CPP_COMMANDS=\
 	".\ibrate.h"\
@@ -3517,6 +3648,7 @@ NODEP_CPP_COMMANDS=\
 	".\onnmgr.h"\
 	".\onnmgr_proxy.h"\
 	".\otify.h"\
+	".\vc6\stdafx.h"\
 	".\ygshell.h"\
 	
 
@@ -3525,7 +3657,6 @@ NODEP_CPP_COMMANDS=\
 DEP_CPP_COMMANDS=\
 	".\CommandsFileReg.h"\
 	".\DlgDownload.h"\
-	".\ExprParser.h"\
 	".\Helpers.h"\
 	".\IniFile.h"\
 	".\Interpreter.h"\
@@ -3537,6 +3668,7 @@ DEP_CPP_COMMANDS=\
 	
 NODEP_CPP_COMMANDS=\
 	"..\..\vc6\mortrunner\stdafx.h"\
+	".\ExprParser.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
 	".\MapMortStringToInt.h"\
@@ -3581,7 +3713,6 @@ DEP_CPP_COMMANDS=\
 	".\SmartPhone\mortafx.h"\
 	".\StdAfx.h"\
 	".\variables.h"\
-	".\vc6\stdafx.h"\
 	{$(INCLUDE)}"aygshell.h"\
 	{$(INCLUDE)}"connmgr.h"\
 	{$(INCLUDE)}"connmgr_proxy.h"\
@@ -3589,6 +3720,10 @@ DEP_CPP_COMMANDS=\
 	{$(INCLUDE)}"sipapi.h"\
 	{$(INCLUDE)}"vibrate.h"\
 	{$(INCLUDE)}"winuserm.h"\
+	
+NODEP_CPP_COMMANDS=\
+	".\vc6\resource.h"\
+	".\vc6\stdafx.h"\
 	
 
 !ELSEIF  "$(CFG)" == "MortRunnerSP - Win32 (WCE ARMV4) Release SP jwz"
@@ -3616,16 +3751,17 @@ DEP_CPP_COMMANDS=\
 	".\SmartPhone\mortafx.h"\
 	".\StdAfx.h"\
 	".\variables.h"\
-	".\vc6\stdafx.h"\
+	{$(INCLUDE)}"aygshell.h"\
+	{$(INCLUDE)}"connmgr.h"\
+	{$(INCLUDE)}"connmgr_proxy.h"\
+	{$(INCLUDE)}"notify.h"\
+	{$(INCLUDE)}"sipapi.h"\
+	{$(INCLUDE)}"vibrate.h"\
+	{$(INCLUDE)}"winuserm.h"\
 	
 NODEP_CPP_COMMANDS=\
-	".\ibrate.h"\
-	".\inuserm.h"\
-	".\ipapi.h"\
-	".\onnmgr.h"\
-	".\onnmgr_proxy.h"\
-	".\otify.h"\
-	".\ygshell.h"\
+	".\vc6\resource.h"\
+	".\vc6\stdafx.h"\
 	
 
 !ENDIF 
@@ -3644,7 +3780,6 @@ SOURCE=.\CommandsSystem.cpp
 DEP_CPP_COMMANDSS=\
 	".\CommandsSystem.h"\
 	".\DlgChoice.h"\
-	".\ExprParser.h"\
 	".\Helpers.h"\
 	".\IniFile.h"\
 	".\Interpreter.h"\
@@ -3658,6 +3793,7 @@ DEP_CPP_COMMANDSS=\
 NODEP_CPP_COMMANDSS=\
 	"..\..\vc6\mortrunner\resource.h"\
 	"..\..\vc6\mortrunner\stdafx.h"\
+	".\ExprParser.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
 	".\MapMortStringToInt.h"\
@@ -3681,7 +3817,6 @@ NODEP_CPP_COMMANDSS=\
 DEP_CPP_COMMANDSS=\
 	".\CommandsSystem.h"\
 	".\DlgChoice.h"\
-	".\ExprParser.h"\
 	".\Helpers.h"\
 	".\IniFile.h"\
 	".\Interpreter.h"\
@@ -3694,6 +3829,7 @@ DEP_CPP_COMMANDSS=\
 	
 NODEP_CPP_COMMANDSS=\
 	"..\..\vc6\mortrunner\stdafx.h"\
+	".\ExprParser.h"\
 	".\ibrate.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
@@ -3718,7 +3854,6 @@ NODEP_CPP_COMMANDSS=\
 DEP_CPP_COMMANDSS=\
 	".\CommandsSystem.h"\
 	".\DlgChoice.h"\
-	".\ExprParser.h"\
 	".\Helpers.h"\
 	".\IniFile.h"\
 	".\Interpreter.h"\
@@ -3731,6 +3866,7 @@ DEP_CPP_COMMANDSS=\
 	
 NODEP_CPP_COMMANDSS=\
 	"..\..\vc6\mortrunner\stdafx.h"\
+	".\ExprParser.h"\
 	".\ibrate.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
@@ -3768,7 +3904,6 @@ DEP_CPP_COMMANDSS=\
 	".\SmartPhone\mortafx.h"\
 	".\StdAfx.h"\
 	".\variables.h"\
-	".\vc6\stdafx.h"\
 	".\vibrate.h"\
 	
 NODEP_CPP_COMMANDSS=\
@@ -3780,6 +3915,7 @@ NODEP_CPP_COMMANDSS=\
 	".\onnmgr_proxy.h"\
 	".\otify.h"\
 	".\thutil.h"\
+	".\vc6\stdafx.h"\
 	".\ygshell.h"\
 	
 
@@ -3788,7 +3924,6 @@ NODEP_CPP_COMMANDSS=\
 DEP_CPP_COMMANDSS=\
 	".\CommandsSystem.h"\
 	".\DlgChoice.h"\
-	".\ExprParser.h"\
 	".\Helpers.h"\
 	".\IniFile.h"\
 	".\Interpreter.h"\
@@ -3802,6 +3937,7 @@ DEP_CPP_COMMANDSS=\
 NODEP_CPP_COMMANDSS=\
 	"..\..\vc6\mortrunner\resource.h"\
 	"..\..\vc6\mortrunner\stdafx.h"\
+	".\ExprParser.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
 	".\MapMortStringToInt.h"\
@@ -3847,7 +3983,6 @@ DEP_CPP_COMMANDSS=\
 	".\SmartPhone\mortafx.h"\
 	".\StdAfx.h"\
 	".\variables.h"\
-	".\vc6\stdafx.h"\
 	".\vibrate.h"\
 	{$(INCLUDE)}"aygshell.h"\
 	{$(INCLUDE)}"bthutil.h"\
@@ -3858,6 +3993,10 @@ DEP_CPP_COMMANDSS=\
 	{$(INCLUDE)}"sipapi.h"\
 	{$(INCLUDE)}"vibrate.h"\
 	{$(INCLUDE)}"winuserm.h"\
+	
+NODEP_CPP_COMMANDSS=\
+	".\vc6\resource.h"\
+	".\vc6\stdafx.h"\
 	
 
 !ELSEIF  "$(CFG)" == "MortRunnerSP - Win32 (WCE ARMV4) Release SP jwz"
@@ -3887,13 +4026,20 @@ DEP_CPP_COMMANDSS=\
 	".\SmartPhone\mortafx.h"\
 	".\StdAfx.h"\
 	".\variables.h"\
-	".\vc6\stdafx.h"\
 	".\vibrate.h"\
+	{$(INCLUDE)}"aygshell.h"\
+	{$(INCLUDE)}"bthutil.h"\
+	{$(INCLUDE)}"connmgr.h"\
+	{$(INCLUDE)}"connmgr_proxy.h"\
+	{$(INCLUDE)}"notify.h"\
+	{$(INCLUDE)}"pm.h"\
+	{$(INCLUDE)}"sipapi.h"\
+	{$(INCLUDE)}"vibrate.h"\
+	{$(INCLUDE)}"winuserm.h"\
 	
 NODEP_CPP_COMMANDSS=\
-	".\connmgr.h"\
-	".\m.h"\
-	".\otify.h"\
+	".\vc6\resource.h"\
+	".\vc6\stdafx.h"\
 	
 
 !ENDIF 
@@ -3911,7 +4057,6 @@ SOURCE=.\CommandsWindows.cpp
 
 DEP_CPP_COMMANDSW=\
 	".\CommandsWindows.h"\
-	".\ExprParser.h"\
 	".\Helpers.h"\
 	".\Interpreter.h"\
 	".\MortScriptApp.h"\
@@ -3923,6 +4068,7 @@ DEP_CPP_COMMANDSW=\
 NODEP_CPP_COMMANDSW=\
 	"..\..\vc6\mortrunner\resource.h"\
 	"..\..\vc6\mortrunner\stdafx.h"\
+	".\ExprParser.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
 	".\MapMortStringToInt.h"\
@@ -3943,7 +4089,6 @@ NODEP_CPP_COMMANDSW=\
 
 DEP_CPP_COMMANDSW=\
 	".\CommandsWindows.h"\
-	".\ExprParser.h"\
 	".\Helpers.h"\
 	".\Interpreter.h"\
 	".\MortScriptApp.h"\
@@ -3953,6 +4098,7 @@ DEP_CPP_COMMANDSW=\
 	
 NODEP_CPP_COMMANDSW=\
 	"..\..\vc6\mortrunner\stdafx.h"\
+	".\ExprParser.h"\
 	".\ibrate.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
@@ -3974,7 +4120,6 @@ NODEP_CPP_COMMANDSW=\
 
 DEP_CPP_COMMANDSW=\
 	".\CommandsWindows.h"\
-	".\ExprParser.h"\
 	".\Helpers.h"\
 	".\Interpreter.h"\
 	".\MortScriptApp.h"\
@@ -3983,6 +4128,7 @@ DEP_CPP_COMMANDSW=\
 	
 NODEP_CPP_COMMANDSW=\
 	"..\..\vc6\mortrunner\stdafx.h"\
+	".\ExprParser.h"\
 	".\ibrate.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
@@ -4013,12 +4159,12 @@ DEP_CPP_COMMANDSW=\
 	".\MortScriptApp.h"\
 	".\SmartPhone\mortafx.h"\
 	".\StdAfx.h"\
-	".\vc6\stdafx.h"\
 	
 NODEP_CPP_COMMANDSW=\
 	".\ibrate.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
+	".\vc6\stdafx.h"\
 	".\ygshell.h"\
 	
 
@@ -4026,7 +4172,6 @@ NODEP_CPP_COMMANDSW=\
 
 DEP_CPP_COMMANDSW=\
 	".\CommandsWindows.h"\
-	".\ExprParser.h"\
 	".\Helpers.h"\
 	".\Interpreter.h"\
 	".\MortScriptApp.h"\
@@ -4038,6 +4183,7 @@ DEP_CPP_COMMANDSW=\
 NODEP_CPP_COMMANDSW=\
 	"..\..\vc6\mortrunner\resource.h"\
 	"..\..\vc6\mortrunner\stdafx.h"\
+	".\ExprParser.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
 	".\MapMortStringToInt.h"\
@@ -4076,11 +4222,14 @@ DEP_CPP_COMMANDSW=\
 	".\MortScriptApp.h"\
 	".\SmartPhone\mortafx.h"\
 	".\StdAfx.h"\
-	".\vc6\stdafx.h"\
 	{$(INCLUDE)}"aygshell.h"\
 	{$(INCLUDE)}"sipapi.h"\
 	{$(INCLUDE)}"vibrate.h"\
 	{$(INCLUDE)}"winuserm.h"\
+	
+NODEP_CPP_COMMANDSW=\
+	".\vc6\resource.h"\
+	".\vc6\stdafx.h"\
 	
 
 !ELSEIF  "$(CFG)" == "MortRunnerSP - Win32 (WCE ARMV4) Release SP jwz"
@@ -4105,6 +4254,13 @@ DEP_CPP_COMMANDSW=\
 	".\MortScriptApp.h"\
 	".\SmartPhone\mortafx.h"\
 	".\StdAfx.h"\
+	{$(INCLUDE)}"aygshell.h"\
+	{$(INCLUDE)}"sipapi.h"\
+	{$(INCLUDE)}"vibrate.h"\
+	{$(INCLUDE)}"winuserm.h"\
+	
+NODEP_CPP_COMMANDSW=\
+	".\vc6\resource.h"\
 	".\vc6\stdafx.h"\
 	
 
@@ -4286,6 +4442,9 @@ DEP_CPP_FUNCT=\
 	".\Helpers.h"\
 	".\Interpreter.h"\
 	
+NODEP_CPP_FUNCT=\
+	".\vc6\resource.h"\
+	
 
 !ELSEIF  "$(CFG)" == "MortRunnerSP - Win32 (WCE ARMV4) Release SP jwz"
 
@@ -4311,6 +4470,9 @@ DEP_CPP_FUNCT=\
 	".\Helpers.h"\
 	".\Interpreter.h"\
 	
+NODEP_CPP_FUNCT=\
+	".\vc6\resource.h"\
+	
 
 !ENDIF 
 
@@ -4322,7 +4484,6 @@ SOURCE=.\FunctionsData.cpp
 !IF  "$(CFG)" == "MortRunnerSP - Win32 (WCE emulator) Release"
 
 DEP_CPP_FUNCTI=\
-	".\ExprParser.h"\
 	".\FunctionsData.h"\
 	".\Helpers.h"\
 	".\IniFile.h"\
@@ -4335,6 +4496,7 @@ DEP_CPP_FUNCTI=\
 	
 NODEP_CPP_FUNCTI=\
 	"..\..\vc6\mortrunner\stdafx.h"\
+	".\ExprParser.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
 	".\MapMortStringToInt.h"\
@@ -4354,7 +4516,6 @@ NODEP_CPP_FUNCTI=\
 !ELSEIF  "$(CFG)" == "MortRunnerSP - Win32 (WCE emulator) Debug"
 
 DEP_CPP_FUNCTI=\
-	".\ExprParser.h"\
 	".\FunctionsData.h"\
 	".\Helpers.h"\
 	".\IniFile.h"\
@@ -4366,6 +4527,7 @@ DEP_CPP_FUNCTI=\
 	
 NODEP_CPP_FUNCTI=\
 	"..\..\vc6\mortrunner\stdafx.h"\
+	".\ExprParser.h"\
 	".\ibrate.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
@@ -4386,7 +4548,6 @@ NODEP_CPP_FUNCTI=\
 !ELSEIF  "$(CFG)" == "MortRunnerSP - Win32 (WCE ARMV4) Debug"
 
 DEP_CPP_FUNCTI=\
-	".\ExprParser.h"\
 	".\FunctionsData.h"\
 	".\Helpers.h"\
 	".\IniFile.h"\
@@ -4397,6 +4558,7 @@ DEP_CPP_FUNCTI=\
 	
 NODEP_CPP_FUNCTI=\
 	"..\..\vc6\mortrunner\stdafx.h"\
+	".\ExprParser.h"\
 	".\ibrate.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
@@ -4429,19 +4591,18 @@ DEP_CPP_FUNCTI=\
 	".\MortScriptApp.h"\
 	".\SmartPhone\mortafx.h"\
 	".\StdAfx.h"\
-	".\vc6\stdafx.h"\
 	
 NODEP_CPP_FUNCTI=\
 	".\ibrate.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
+	".\vc6\stdafx.h"\
 	".\ygshell.h"\
 	
 
 !ELSEIF  "$(CFG)" == "MortRunnerSP - Win32 (WCE ARMV4) Debug PNA"
 
 DEP_CPP_FUNCTI=\
-	".\ExprParser.h"\
 	".\FunctionsData.h"\
 	".\Helpers.h"\
 	".\IniFile.h"\
@@ -4454,6 +4615,7 @@ DEP_CPP_FUNCTI=\
 	
 NODEP_CPP_FUNCTI=\
 	"..\..\vc6\mortrunner\stdafx.h"\
+	".\ExprParser.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
 	".\MapMortStringToInt.h"\
@@ -4493,11 +4655,14 @@ DEP_CPP_FUNCTI=\
 	".\MortScriptApp.h"\
 	".\SmartPhone\mortafx.h"\
 	".\StdAfx.h"\
-	".\vc6\stdafx.h"\
 	{$(INCLUDE)}"aygshell.h"\
 	{$(INCLUDE)}"sipapi.h"\
 	{$(INCLUDE)}"vibrate.h"\
 	{$(INCLUDE)}"winuserm.h"\
+	
+NODEP_CPP_FUNCTI=\
+	".\vc6\resource.h"\
+	".\vc6\stdafx.h"\
 	
 
 !ELSEIF  "$(CFG)" == "MortRunnerSP - Win32 (WCE ARMV4) Release SP jwz"
@@ -4523,6 +4688,13 @@ DEP_CPP_FUNCTI=\
 	".\MortScriptApp.h"\
 	".\SmartPhone\mortafx.h"\
 	".\StdAfx.h"\
+	{$(INCLUDE)}"aygshell.h"\
+	{$(INCLUDE)}"sipapi.h"\
+	{$(INCLUDE)}"vibrate.h"\
+	{$(INCLUDE)}"winuserm.h"\
+	
+NODEP_CPP_FUNCTI=\
+	".\vc6\resource.h"\
 	".\vc6\stdafx.h"\
 	
 
@@ -4545,7 +4717,6 @@ DEP_CPP_FUNCTIO=\
 	".\DlgInput.h"\
 	".\DlgSelDir.h"\
 	".\DlgSelFile.h"\
-	".\ExprParser.h"\
 	".\FunctionsData.h"\
 	".\Helpers.h"\
 	".\Interpreter.h"\
@@ -4561,6 +4732,7 @@ DEP_CPP_FUNCTIO=\
 	
 NODEP_CPP_FUNCTIO=\
 	"..\..\vc6\mortrunner\stdafx.h"\
+	".\ExprParser.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
 	".\MapMortStringToInt.h"\
@@ -4585,7 +4757,6 @@ DEP_CPP_FUNCTIO=\
 	".\DlgInput.h"\
 	".\DlgSelDir.h"\
 	".\DlgSelFile.h"\
-	".\ExprParser.h"\
 	".\FunctionsData.h"\
 	".\Helpers.h"\
 	".\Interpreter.h"\
@@ -4600,6 +4771,7 @@ DEP_CPP_FUNCTIO=\
 	
 NODEP_CPP_FUNCTIO=\
 	"..\..\vc6\mortrunner\stdafx.h"\
+	".\ExprParser.h"\
 	".\ibrate.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
@@ -4625,7 +4797,6 @@ DEP_CPP_FUNCTIO=\
 	".\DlgInput.h"\
 	".\DlgSelDir.h"\
 	".\DlgSelFile.h"\
-	".\ExprParser.h"\
 	".\FunctionsData.h"\
 	".\Helpers.h"\
 	".\Interpreter.h"\
@@ -4639,6 +4810,7 @@ DEP_CPP_FUNCTIO=\
 	
 NODEP_CPP_FUNCTIO=\
 	"..\..\vc6\mortrunner\stdafx.h"\
+	".\ExprParser.h"\
 	".\ibrate.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
@@ -4680,12 +4852,12 @@ DEP_CPP_FUNCTIO=\
 	".\SmartPhone\mortafx.h"\
 	".\StdAfx.h"\
 	".\variables.h"\
-	".\vc6\stdafx.h"\
 	
 NODEP_CPP_FUNCTIO=\
 	".\ibrate.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
+	".\vc6\stdafx.h"\
 	".\ygshell.h"\
 	
 
@@ -4697,7 +4869,6 @@ DEP_CPP_FUNCTIO=\
 	".\DlgInput.h"\
 	".\DlgSelDir.h"\
 	".\DlgSelFile.h"\
-	".\ExprParser.h"\
 	".\FunctionsData.h"\
 	".\Helpers.h"\
 	".\Interpreter.h"\
@@ -4713,6 +4884,7 @@ DEP_CPP_FUNCTIO=\
 	
 NODEP_CPP_FUNCTIO=\
 	"..\..\vc6\mortrunner\stdafx.h"\
+	".\ExprParser.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
 	".\MapMortStringToInt.h"\
@@ -4763,11 +4935,14 @@ DEP_CPP_FUNCTIO=\
 	".\SmartPhone\mortafx.h"\
 	".\StdAfx.h"\
 	".\variables.h"\
-	".\vc6\stdafx.h"\
 	{$(INCLUDE)}"aygshell.h"\
 	{$(INCLUDE)}"sipapi.h"\
 	{$(INCLUDE)}"vibrate.h"\
 	{$(INCLUDE)}"winuserm.h"\
+	
+NODEP_CPP_FUNCTIO=\
+	".\vc6\resource.h"\
+	".\vc6\stdafx.h"\
 	
 
 !ELSEIF  "$(CFG)" == "MortRunnerSP - Win32 (WCE ARMV4) Release SP jwz"
@@ -4804,6 +4979,13 @@ DEP_CPP_FUNCTIO=\
 	".\SmartPhone\mortafx.h"\
 	".\StdAfx.h"\
 	".\variables.h"\
+	{$(INCLUDE)}"aygshell.h"\
+	{$(INCLUDE)}"sipapi.h"\
+	{$(INCLUDE)}"vibrate.h"\
+	{$(INCLUDE)}"winuserm.h"\
+	
+NODEP_CPP_FUNCTIO=\
+	".\vc6\resource.h"\
 	".\vc6\stdafx.h"\
 	
 
@@ -4821,7 +5003,6 @@ SOURCE=.\FunctionsFileReg.cpp
 !IF  "$(CFG)" == "MortRunnerSP - Win32 (WCE emulator) Release"
 
 DEP_CPP_FUNCTION=\
-	".\ExprParser.h"\
 	".\FunctionsFileReg.h"\
 	".\Helpers.h"\
 	".\IniFile.h"\
@@ -4834,6 +5015,7 @@ DEP_CPP_FUNCTION=\
 	
 NODEP_CPP_FUNCTION=\
 	"..\..\vc6\mortrunner\stdafx.h"\
+	".\ExprParser.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
 	".\MapMortStringToInt.h"\
@@ -4853,7 +5035,6 @@ NODEP_CPP_FUNCTION=\
 !ELSEIF  "$(CFG)" == "MortRunnerSP - Win32 (WCE emulator) Debug"
 
 DEP_CPP_FUNCTION=\
-	".\ExprParser.h"\
 	".\FunctionsFileReg.h"\
 	".\Helpers.h"\
 	".\IniFile.h"\
@@ -4865,6 +5046,7 @@ DEP_CPP_FUNCTION=\
 	
 NODEP_CPP_FUNCTION=\
 	"..\..\vc6\mortrunner\stdafx.h"\
+	".\ExprParser.h"\
 	".\ibrate.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
@@ -4885,7 +5067,6 @@ NODEP_CPP_FUNCTION=\
 !ELSEIF  "$(CFG)" == "MortRunnerSP - Win32 (WCE ARMV4) Debug"
 
 DEP_CPP_FUNCTION=\
-	".\ExprParser.h"\
 	".\FunctionsFileReg.h"\
 	".\Helpers.h"\
 	".\IniFile.h"\
@@ -4895,6 +5076,7 @@ DEP_CPP_FUNCTION=\
 	".\StdAfx.h"\
 	
 NODEP_CPP_FUNCTION=\
+	".\ExprParser.h"\
 	".\ibrate.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
@@ -4938,7 +5120,6 @@ NODEP_CPP_FUNCTION=\
 !ELSEIF  "$(CFG)" == "MortRunnerSP - Win32 (WCE ARMV4) Debug PNA"
 
 DEP_CPP_FUNCTION=\
-	".\ExprParser.h"\
 	".\FunctionsFileReg.h"\
 	".\Helpers.h"\
 	".\IniFile.h"\
@@ -4951,6 +5132,7 @@ DEP_CPP_FUNCTION=\
 	
 NODEP_CPP_FUNCTION=\
 	"..\..\vc6\mortrunner\stdafx.h"\
+	".\ExprParser.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
 	".\MapMortStringToInt.h"\
@@ -4996,6 +5178,9 @@ DEP_CPP_FUNCTION=\
 	{$(INCLUDE)}"vibrate.h"\
 	{$(INCLUDE)}"winuserm.h"\
 	
+NODEP_CPP_FUNCTION=\
+	".\vc6\resource.h"\
+	
 
 !ELSEIF  "$(CFG)" == "MortRunnerSP - Win32 (WCE ARMV4) Release SP jwz"
 
@@ -5021,6 +5206,13 @@ DEP_CPP_FUNCTION=\
 	".\SmartPhone\mortafx.h"\
 	".\StdAfx.h"\
 	".\variables.h"\
+	{$(INCLUDE)}"aygshell.h"\
+	{$(INCLUDE)}"sipapi.h"\
+	{$(INCLUDE)}"vibrate.h"\
+	{$(INCLUDE)}"winuserm.h"\
+	
+NODEP_CPP_FUNCTION=\
+	".\vc6\resource.h"\
 	
 
 !ENDIF 
@@ -5037,7 +5229,6 @@ SOURCE=.\FunctionsSystem.cpp
 !IF  "$(CFG)" == "MortRunnerSP - Win32 (WCE emulator) Release"
 
 DEP_CPP_FUNCTIONS=\
-	".\ExprParser.h"\
 	".\FunctionsSystem.h"\
 	".\Helpers.h"\
 	".\IniFile.h"\
@@ -5050,6 +5241,7 @@ DEP_CPP_FUNCTIONS=\
 	
 NODEP_CPP_FUNCTIONS=\
 	"..\..\vc6\mortrunner\stdafx.h"\
+	".\ExprParser.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
 	".\MapMortStringToInt.h"\
@@ -5069,7 +5261,6 @@ NODEP_CPP_FUNCTIONS=\
 !ELSEIF  "$(CFG)" == "MortRunnerSP - Win32 (WCE emulator) Debug"
 
 DEP_CPP_FUNCTIONS=\
-	".\ExprParser.h"\
 	".\FunctionsSystem.h"\
 	".\Helpers.h"\
 	".\IniFile.h"\
@@ -5081,6 +5272,7 @@ DEP_CPP_FUNCTIONS=\
 	
 NODEP_CPP_FUNCTIONS=\
 	"..\..\vc6\mortrunner\stdafx.h"\
+	".\ExprParser.h"\
 	".\ibrate.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
@@ -5101,7 +5293,6 @@ NODEP_CPP_FUNCTIONS=\
 !ELSEIF  "$(CFG)" == "MortRunnerSP - Win32 (WCE ARMV4) Debug"
 
 DEP_CPP_FUNCTIONS=\
-	".\ExprParser.h"\
 	".\FunctionsSystem.h"\
 	".\Helpers.h"\
 	".\IniFile.h"\
@@ -5112,6 +5303,7 @@ DEP_CPP_FUNCTIONS=\
 	
 NODEP_CPP_FUNCTIONS=\
 	"..\..\vc6\mortrunner\stdafx.h"\
+	".\ExprParser.h"\
 	".\ibrate.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
@@ -5146,20 +5338,19 @@ DEP_CPP_FUNCTIONS=\
 	".\SmartPhone\mortafx.h"\
 	".\StdAfx.h"\
 	".\variables.h"\
-	".\vc6\stdafx.h"\
 	
 NODEP_CPP_FUNCTIONS=\
 	".\ibrate.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
 	".\thutil.h"\
+	".\vc6\stdafx.h"\
 	".\ygshell.h"\
 	
 
 !ELSEIF  "$(CFG)" == "MortRunnerSP - Win32 (WCE ARMV4) Debug PNA"
 
 DEP_CPP_FUNCTIONS=\
-	".\ExprParser.h"\
 	".\FunctionsSystem.h"\
 	".\Helpers.h"\
 	".\IniFile.h"\
@@ -5172,6 +5363,7 @@ DEP_CPP_FUNCTIONS=\
 	
 NODEP_CPP_FUNCTIONS=\
 	"..\..\vc6\mortrunner\stdafx.h"\
+	".\ExprParser.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
 	".\MapMortStringToInt.h"\
@@ -5214,12 +5406,15 @@ DEP_CPP_FUNCTIONS=\
 	".\SmartPhone\mortafx.h"\
 	".\StdAfx.h"\
 	".\variables.h"\
-	".\vc6\stdafx.h"\
 	{$(INCLUDE)}"aygshell.h"\
 	{$(INCLUDE)}"bthutil.h"\
 	{$(INCLUDE)}"sipapi.h"\
 	{$(INCLUDE)}"vibrate.h"\
 	{$(INCLUDE)}"winuserm.h"\
+	
+NODEP_CPP_FUNCTIONS=\
+	".\vc6\resource.h"\
+	".\vc6\stdafx.h"\
 	
 
 !ELSEIF  "$(CFG)" == "MortRunnerSP - Win32 (WCE ARMV4) Release SP jwz"
@@ -5248,6 +5443,14 @@ DEP_CPP_FUNCTIONS=\
 	".\SmartPhone\mortafx.h"\
 	".\StdAfx.h"\
 	".\variables.h"\
+	{$(INCLUDE)}"aygshell.h"\
+	{$(INCLUDE)}"bthutil.h"\
+	{$(INCLUDE)}"sipapi.h"\
+	{$(INCLUDE)}"vibrate.h"\
+	{$(INCLUDE)}"winuserm.h"\
+	
+NODEP_CPP_FUNCTIONS=\
+	".\vc6\resource.h"\
 	".\vc6\stdafx.h"\
 	
 
@@ -5265,7 +5468,6 @@ SOURCE=.\FunctionsWindows.cpp
 !IF  "$(CFG)" == "MortRunnerSP - Win32 (WCE emulator) Release"
 
 DEP_CPP_FUNCTIONSW=\
-	".\ExprParser.h"\
 	".\FunctionsData.h"\
 	".\Helpers.h"\
 	".\IniFile.h"\
@@ -5278,6 +5480,7 @@ DEP_CPP_FUNCTIONSW=\
 	
 NODEP_CPP_FUNCTIONSW=\
 	"..\..\vc6\mortrunner\stdafx.h"\
+	".\ExprParser.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
 	".\MapMortStringToInt.h"\
@@ -5297,7 +5500,6 @@ NODEP_CPP_FUNCTIONSW=\
 !ELSEIF  "$(CFG)" == "MortRunnerSP - Win32 (WCE emulator) Debug"
 
 DEP_CPP_FUNCTIONSW=\
-	".\ExprParser.h"\
 	".\FunctionsData.h"\
 	".\Helpers.h"\
 	".\IniFile.h"\
@@ -5309,6 +5511,7 @@ DEP_CPP_FUNCTIONSW=\
 	
 NODEP_CPP_FUNCTIONSW=\
 	"..\..\vc6\mortrunner\stdafx.h"\
+	".\ExprParser.h"\
 	".\ibrate.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
@@ -5329,7 +5532,6 @@ NODEP_CPP_FUNCTIONSW=\
 !ELSEIF  "$(CFG)" == "MortRunnerSP - Win32 (WCE ARMV4) Debug"
 
 DEP_CPP_FUNCTIONSW=\
-	".\ExprParser.h"\
 	".\FunctionsData.h"\
 	".\Helpers.h"\
 	".\IniFile.h"\
@@ -5340,6 +5542,7 @@ DEP_CPP_FUNCTIONSW=\
 	
 NODEP_CPP_FUNCTIONSW=\
 	"..\..\vc6\mortrunner\stdafx.h"\
+	".\ExprParser.h"\
 	".\ibrate.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
@@ -5372,19 +5575,18 @@ DEP_CPP_FUNCTIONSW=\
 	".\MortScriptApp.h"\
 	".\SmartPhone\mortafx.h"\
 	".\StdAfx.h"\
-	".\vc6\stdafx.h"\
 	
 NODEP_CPP_FUNCTIONSW=\
 	".\ibrate.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
+	".\vc6\stdafx.h"\
 	".\ygshell.h"\
 	
 
 !ELSEIF  "$(CFG)" == "MortRunnerSP - Win32 (WCE ARMV4) Debug PNA"
 
 DEP_CPP_FUNCTIONSW=\
-	".\ExprParser.h"\
 	".\FunctionsData.h"\
 	".\Helpers.h"\
 	".\IniFile.h"\
@@ -5397,6 +5599,7 @@ DEP_CPP_FUNCTIONSW=\
 	
 NODEP_CPP_FUNCTIONSW=\
 	"..\..\vc6\mortrunner\stdafx.h"\
+	".\ExprParser.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
 	".\MapMortStringToInt.h"\
@@ -5436,11 +5639,14 @@ DEP_CPP_FUNCTIONSW=\
 	".\MortScriptApp.h"\
 	".\SmartPhone\mortafx.h"\
 	".\StdAfx.h"\
-	".\vc6\stdafx.h"\
 	{$(INCLUDE)}"aygshell.h"\
 	{$(INCLUDE)}"sipapi.h"\
 	{$(INCLUDE)}"vibrate.h"\
 	{$(INCLUDE)}"winuserm.h"\
+	
+NODEP_CPP_FUNCTIONSW=\
+	".\vc6\resource.h"\
+	".\vc6\stdafx.h"\
 	
 
 !ELSEIF  "$(CFG)" == "MortRunnerSP - Win32 (WCE ARMV4) Release SP jwz"
@@ -5466,6 +5672,13 @@ DEP_CPP_FUNCTIONSW=\
 	".\MortScriptApp.h"\
 	".\SmartPhone\mortafx.h"\
 	".\StdAfx.h"\
+	{$(INCLUDE)}"aygshell.h"\
+	{$(INCLUDE)}"sipapi.h"\
+	{$(INCLUDE)}"vibrate.h"\
+	{$(INCLUDE)}"winuserm.h"\
+	
+NODEP_CPP_FUNCTIONSW=\
+	".\vc6\resource.h"\
 	".\vc6\stdafx.h"\
 	
 
@@ -5488,11 +5701,11 @@ DEP_CPP_COMMANDSST=\
 	".\Helpers.h"\
 	".\IniFile.h"\
 	".\Interpreter.h"\
-	".\vc6\stdafx.h"\
 	
 NODEP_CPP_COMMANDSST=\
 	".\mortafx.h"\
 	".\MortTypes.h"\
+	".\vc6\stdafx.h"\
 	
 
 !ELSEIF  "$(CFG)" == "MortRunnerSP - Win32 (WCE emulator) Debug"
@@ -5502,11 +5715,11 @@ DEP_CPP_COMMANDSST=\
 	".\Helpers.h"\
 	".\IniFile.h"\
 	".\Interpreter.h"\
-	".\vc6\stdafx.h"\
 	
 NODEP_CPP_COMMANDSST=\
 	".\mortafx.h"\
 	".\MortTypes.h"\
+	".\vc6\stdafx.h"\
 	
 
 !ELSEIF  "$(CFG)" == "MortRunnerSP - Win32 (WCE ARMV4) Debug"
@@ -5516,11 +5729,11 @@ DEP_CPP_COMMANDSST=\
 	".\Helpers.h"\
 	".\IniFile.h"\
 	".\Interpreter.h"\
-	".\vc6\stdafx.h"\
 	
 NODEP_CPP_COMMANDSST=\
 	".\mortafx.h"\
 	".\MortTypes.h"\
+	".\vc6\stdafx.h"\
 	
 
 !ELSEIF  "$(CFG)" == "MortRunnerSP - Win32 (WCE ARMV4) Release PNA"
@@ -5543,6 +5756,8 @@ DEP_CPP_COMMANDSST=\
 	".\Helpers.h"\
 	".\IniFile.h"\
 	".\Interpreter.h"\
+	
+NODEP_CPP_COMMANDSST=\
 	".\vc6\stdafx.h"\
 	
 
@@ -5553,11 +5768,11 @@ DEP_CPP_COMMANDSST=\
 	".\Helpers.h"\
 	".\IniFile.h"\
 	".\Interpreter.h"\
-	".\vc6\stdafx.h"\
 	
 NODEP_CPP_COMMANDSST=\
 	".\mortafx.h"\
 	".\MortTypes.h"\
+	".\vc6\stdafx.h"\
 	
 
 !ELSEIF  "$(CFG)" == "MortRunnerSP - Win32 (WCE ARMV4) Release SP"
@@ -5580,6 +5795,9 @@ DEP_CPP_COMMANDSST=\
 	".\Helpers.h"\
 	".\IniFile.h"\
 	".\Interpreter.h"\
+	
+NODEP_CPP_COMMANDSST=\
+	".\vc6\resource.h"\
 	".\vc6\stdafx.h"\
 	
 
@@ -5603,6 +5821,9 @@ DEP_CPP_COMMANDSST=\
 	".\Helpers.h"\
 	".\IniFile.h"\
 	".\Interpreter.h"\
+	
+NODEP_CPP_COMMANDSST=\
+	".\vc6\resource.h"\
 	".\vc6\stdafx.h"\
 	
 
@@ -5623,7 +5844,6 @@ DEP_CPP_DLGST=\
 	".\DlgStatus.h"\
 	".\Helpers.h"\
 	".\Interpreter.h"\
-	".\vc6\stdafx.h"\
 	".\vibrate.h"\
 	
 NODEP_CPP_DLGST=\
@@ -5631,6 +5851,7 @@ NODEP_CPP_DLGST=\
 	".\ipapi.h"\
 	".\mortafx.h"\
 	".\MortTypes.h"\
+	".\vc6\stdafx.h"\
 	".\ygshell.h"\
 	
 
@@ -5640,7 +5861,6 @@ DEP_CPP_DLGST=\
 	".\DlgStatus.h"\
 	".\Helpers.h"\
 	".\Interpreter.h"\
-	".\vc6\stdafx.h"\
 	".\vibrate.h"\
 	
 NODEP_CPP_DLGST=\
@@ -5648,6 +5868,7 @@ NODEP_CPP_DLGST=\
 	".\ipapi.h"\
 	".\mortafx.h"\
 	".\MortTypes.h"\
+	".\vc6\stdafx.h"\
 	".\ygshell.h"\
 	
 
@@ -5657,7 +5878,6 @@ DEP_CPP_DLGST=\
 	".\DlgStatus.h"\
 	".\Helpers.h"\
 	".\Interpreter.h"\
-	".\vc6\stdafx.h"\
 	".\vibrate.h"\
 	
 NODEP_CPP_DLGST=\
@@ -5665,6 +5885,7 @@ NODEP_CPP_DLGST=\
 	".\ipapi.h"\
 	".\mortafx.h"\
 	".\MortTypes.h"\
+	".\vc6\stdafx.h"\
 	".\ygshell.h"\
 	
 
@@ -5687,12 +5908,12 @@ DEP_CPP_DLGST=\
 	".\DlgStatus.h"\
 	".\Helpers.h"\
 	".\Interpreter.h"\
-	".\vc6\stdafx.h"\
 	
 NODEP_CPP_DLGST=\
 	".\ibrate.h"\
 	".\inuserm.h"\
 	".\ipapi.h"\
+	".\vc6\stdafx.h"\
 	".\ygshell.h"\
 	
 
@@ -5702,7 +5923,6 @@ DEP_CPP_DLGST=\
 	".\DlgStatus.h"\
 	".\Helpers.h"\
 	".\Interpreter.h"\
-	".\vc6\stdafx.h"\
 	".\vibrate.h"\
 	
 NODEP_CPP_DLGST=\
@@ -5710,6 +5930,7 @@ NODEP_CPP_DLGST=\
 	".\ipapi.h"\
 	".\mortafx.h"\
 	".\MortTypes.h"\
+	".\vc6\stdafx.h"\
 	".\ygshell.h"\
 	
 
@@ -5732,11 +5953,14 @@ DEP_CPP_DLGST=\
 	".\DlgStatus.h"\
 	".\Helpers.h"\
 	".\Interpreter.h"\
-	".\vc6\stdafx.h"\
 	{$(INCLUDE)}"aygshell.h"\
 	{$(INCLUDE)}"sipapi.h"\
 	{$(INCLUDE)}"vibrate.h"\
 	{$(INCLUDE)}"winuserm.h"\
+	
+NODEP_CPP_DLGST=\
+	".\vc6\resource.h"\
+	".\vc6\stdafx.h"\
 	
 
 !ELSEIF  "$(CFG)" == "MortRunnerSP - Win32 (WCE ARMV4) Release SP jwz"
@@ -5758,6 +5982,13 @@ DEP_CPP_DLGST=\
 	".\DlgStatus.h"\
 	".\Helpers.h"\
 	".\Interpreter.h"\
+	{$(INCLUDE)}"aygshell.h"\
+	{$(INCLUDE)}"sipapi.h"\
+	{$(INCLUDE)}"vibrate.h"\
+	{$(INCLUDE)}"winuserm.h"\
+	
+NODEP_CPP_DLGST=\
+	".\vc6\resource.h"\
 	".\vc6\stdafx.h"\
 	
 

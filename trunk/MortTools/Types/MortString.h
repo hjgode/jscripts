@@ -150,6 +150,15 @@ public:
     // check beginning of string
     bool StartsWith(LPCTSTR lpszSub) const;
 	bool EndsWith(LPCTSTR lpszSub) const;
+
+	CStr Get(LPCTSTR lpszBegin,LPCTSTR lpszEnd, bool InCluded = false);
+	CStr Get(LPCTSTR lpszBegin, LPCTSTR lpszEnd,LPCTSTR lpszPrevSrch,bool InCluded=false);
+	CStr Get(LPCTSTR lpszBegin, LPCTSTR lpszEnd,int &be,bool InCluded = false);
+
+	CStr GetNoCase(LPCTSTR lpszBegin,LPCTSTR lpszEnd, bool InCluded = false);
+	CStr GetNoCase(LPCTSTR lpszBegin, LPCTSTR lpszEnd,LPCTSTR lpszPrevSrch,bool InCluded = false);
+	CStr GetNoCase(LPCTSTR lpszBegin, LPCTSTR lpszEnd,int &be,bool InCluded = false);
+
     // simple formatting
 
     // printf-like formatting using passed string

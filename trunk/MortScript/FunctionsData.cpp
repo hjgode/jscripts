@@ -333,6 +333,82 @@ CValue  FctPart( CValueArray &params, int &error, CStr &errorMessage )
     return part;
 }
 
+// Get(Source,Begin,End,Prev,Include)
+CValue  FctGet( CValueArray &params, int &error, CStr &errorMessage )
+{
+    if ( params.GetSize() < 3 || params.GetSize() > 5 )
+    {
+        errorMessage = InvalidParameterCount + L"'Get'";
+        error = 9;
+        return CValue();
+    }
+
+	CStr tStr;
+	CValue Result,tValue;
+	tStr = (CStr)params[0];
+	if (params.GetSize()==3)
+		Result = tStr.Get((CStr)params[1],(CStr)params[2]);
+	else if (params.GetSize()==4)
+	{
+		tValue = params[3];
+		if (tValue.IsValidNumber())
+			Result = tStr.Get((CStr)params[1],(CStr)params[2],(long)tValue);
+		else
+			Result = tStr.Get((CStr)params[1],(CStr)params[2],(CStr)tValue);
+	}
+	else if (params.GetSize()==5)
+	{
+		tValue = params[4];
+		if (!tValue.IsValidNumber())
+		{
+			errorMessage = L"Parameter 4 of 'Get' must be 0 or 1.";
+			error = 10;
+			return CValue();
+		}
+		Result = tStr.Get((CStr)params[1],(CStr)params[2],(CStr)params[3],(long)tValue);
+	}
+  
+    return Result;
+}
+
+// Get(Source,Begin,End,Prev,Include)
+CValue  FctGetNoCase( CValueArray &params, int &error, CStr &errorMessage )
+{
+    if ( params.GetSize() < 3 || params.GetSize() > 5 )
+    {
+        errorMessage = InvalidParameterCount + L"'Get'";
+        error = 9;
+        return CValue();
+    }
+
+	CStr tStr;
+	CValue Result,tValue;
+	tStr = (CStr)params[0];
+	if (params.GetSize()==3)
+		Result = tStr.GetNoCase((CStr)params[1],(CStr)params[2]);
+	else if (params.GetSize()==4)
+	{
+		tValue = params[3];
+		if (tValue.IsValidNumber())
+			Result = tStr.GetNoCase((CStr)params[1],(CStr)params[2],(long)tValue);
+		else
+			Result = tStr.GetNoCase((CStr)params[1],(CStr)params[2],(CStr)tValue);
+	}
+	else if (params.GetSize()==5)
+	{
+		tValue = params[4];
+		if (!tValue.IsValidNumber())
+		{
+			errorMessage = L"Parameter 4 of 'Get' must be 0 or 1.";
+			error = 10;
+			return CValue();
+		}
+		Result = tStr.GetNoCase((CStr)params[1],(CStr)params[2],(CStr)params[3],(long)tValue);
+	}
+  
+    return Result;
+}
+
 CValue  FctElementCount( CValueArray &params, int &error, CStr &errorMessage )
 {
     if ( params.GetSize() != 1 )
@@ -1112,32 +1188,10 @@ CValue  FctIn( CValueArray &params, int &error, CStr &errorMessage )
     }
 
 
-	CStr tch = params[0];
+	CStr tch = params[1];
 	TCHAR ch = tch[0];
     //CInterpreter parser;
-	rc = (long)CInterpreter::In( ch, (CStr)params[1] );
+	rc = (long)CInterpreter::In( ch, (CStr)params[0] );
 
 	return rc;
 }
-
-/*
-#ifdef CELE
-HRESULT REGX(PTSTR ptzCmd);
-
-CValue  FctRegx( CValueArray &params, int &error, CStr &errorMessage )
-{
-    CValue rc;
-
-    if ( params.GetSize() != 1 )
-    {
-        errorMessage = InvalidParameterCount + L"'Regx'";
-        error = 9;
-        return CValue();
-    }
-    CStr tStr = SlashChar((CStr)params[0]);
-	tStr.TrimRight(L"\"");
-	tStr.TrimLeft(L"\"");
-    return REGX((PTSTR)((LPCTSTR)tStr));
-}
-#endif
-*/
