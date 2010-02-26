@@ -19,6 +19,8 @@ CValue        FctFind                 ( CValueArray &params, int &error, CStr &e
 CValue        FctReverseFind          ( CValueArray &params, int &error, CStr &errorMessage );
 CValue        FctReplace              ( CValueArray &params, int &error, CStr &errorMessage );
 CValue        FctRepeatString         ( CValueArray &params, int &error, CStr &errorMessage );
+CValue		  FctGet				  ( CValueArray &params, int &error, CStr &errorMessage );
+CValue		  FctGetNoCase			  ( CValueArray &params, int &error, CStr &errorMessage );
 
 CValue        FctArray                ( CValueArray &params, int &error, CStr &errorMessage );
 CValue        FctMap                  ( CValueArray &params, int &error, CStr &errorMessage );

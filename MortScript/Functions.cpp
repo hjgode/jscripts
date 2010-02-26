@@ -61,8 +61,15 @@ function FunctionsArray[] =
 	,   { L"formattime",			FctFormatTime }
 	,   { L"freediskspace",			FctFreeDiskSpace }
 	,   { L"freememory",			FctFreeMemory }
+
+	,	{ L"get",					FctGet }
 #ifdef SMARTPHONE
 	,	{ L"getbtstate",			FctGetBTState }
+#endif
+
+	,	{ L"getnocase",				FctGetNoCase }
+
+#ifdef SMARTPHONE
 	,	{ L"getradiomode",			FctGetRadioMode }
 #endif
 	,	{ L"getwindowfromproc",		FctGetWindowFromProc }
