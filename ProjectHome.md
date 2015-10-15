@@ -1,0 +1,1 @@
+This project is advanced version of Mortscript.
